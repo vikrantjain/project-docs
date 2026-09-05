@@ -19,3 +19,7 @@ design rationale is kept out of runbooks.
 ## Requirements
 
 Claude Code. No other tools, languages, or services.
+
+## License
+
+[MIT](LICENSE)
