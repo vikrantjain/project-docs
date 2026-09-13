@@ -83,10 +83,12 @@ order to operate the system, or is it there because the author knew it?
     sequences, they are two sections, and the runbook says which one a first-time follower
     should run.
 
-15. **Open each flow section the way the runbook opens.** Name what the flow achieves, what must
-    already have run, and the observable end state that proves it worked. Link the setup section
-    for the preconditions instead of repeating its steps. A follower must be able to pick their
-    section from these lines without reading the steps under any of them.
+15. **Open each flow section with what the follower needs before starting it.** Name what the
+    flow achieves, what must already have run, and the observable end state that proves it
+    worked. Say whether the section can be re-run, and where to resume if it fails partway.
+    Rules 19 and 20 say when each of those two is needed. Link the setup section for the
+    preconditions instead of repeating its steps. A follower must be able to pick their section
+    from these lines without reading the steps under any of them.
 
 16. **Two ways to run one flow are two paths inside that flow's section.** A browser path, a
     terminal path and a pipeline invocation that reach the same end state go under headings
@@ -108,11 +110,12 @@ order to operate the system, or is it there because the author knew it?
     back to guessing which file to open.
 
 19. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
-    a section is safe. Where the underlying operation makes that false, the section says so.
+    a section is safe. Where the underlying operation makes that false, the section's opening
+    lines say so.
 
 20. **Say how to recover from a failure mid-run.** The follower who is stranded halfway has
     resources half-created, and needs to know whether to fix and resume, or tear down and start
-    again. Name the resume point per section, or point at teardown.
+    again. Name the resume point in the section's opening lines, or point at teardown.
 
 21. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
     the runbook is long. Each entry is a symptom the follower can observe, then the fix.
