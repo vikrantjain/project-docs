@@ -6,10 +6,11 @@ description: Guidelines for writing a runbook — what it may contain, how it is
 # Runbooks
 
 A runbook is **followed, not read**. Someone who does not know the system opens it, types what
-it says, and reaches a working end state. Every rule below serves that one sentence.
+it says, and reaches a working end state. The system already exists, and what the follower does
+is operate it. Every rule below serves that one sentence.
 
 When a case here isn't covered, decide it from that sentence: does the follower need this in
-order to do the next thing, or is it there because the author knew it?
+order to operate the system, or is it there because the author knew it?
 
 ## The rules
 
