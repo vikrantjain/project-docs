@@ -105,13 +105,18 @@ a runbook from nothing, settle the shape first.
     its own verified state. Setup that only one flow needs belongs in that flow's section, not
     in the shared one.
 
-18. **Split into files once the flows stop fitting one read-through.** One file per flow that
-    can be run on its own, one for the shared setup, one for teardown, and an index file that is
-    the only entry point. The index gives each flow its one-line statement of what it achieves
-    and when to run it, and links it. Nothing the follower executes lives in the index. Each
-    flow file links its prerequisites rather than copying them. Do not split finer than a flow.
-    A file per service or per step scatters one procedure across the tree and puts the follower
-    back to guessing which file to open.
+18. **Keep the runbook in one file unless its owner decides to split it.** One document needs no
+    index and no cross-file links, so it is the default however many flows it holds. Where the
+    flows have stopped fitting one read-through, propose the split and name the files it would
+    produce. The split is proposed, never assumed.
+
+    A split runbook lives in one `runbook/` folder, and no part of it lives outside: one file per
+    flow that can be run on its own, one for the shared setup, one for teardown, and `index.md`
+    as the only entry point. The index gives each flow its one-line statement of what it achieves
+    and when to run it, and links it. Nothing the follower executes lives in the index. Each flow
+    file links its prerequisites rather than copying them. Do not split finer than a flow. A file
+    per service or per step scatters one procedure across the tree and puts the follower back to
+    guessing which file to open.
 
 19. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
     a section is safe. Where the underlying operation makes that false, the section's opening
@@ -155,9 +160,12 @@ a runbook from nothing, settle the shape first.
     one flow needs sits inside that flow.
 11. Check that troubleshooting is a section rather than notes scattered through the steps. Each
     entry names a symptom the follower can observe, then the fix.
-12. Where the runbook is split across files, check that the index reaches every flow and that no
-    flow file repeats setup it could link to instead. Check the README the same way: it links to
-    this runbook rather than carrying a second copy of its steps.
-13. Confirm teardown covers what setup created, and refresh the verified-against line.
-14. Settle anything the steps above do not cover against the opening sentence: does the follower
+12. Check whether it should be one file at all. A runbook split across files whose owner did not
+    ask for the split is the finding, and so is any part of a split runbook living outside the
+    `runbook/` folder.
+13. Where the runbook is split, check that `index.md` reaches every flow, that nothing the
+    follower executes lives in it, and that no flow file repeats setup it could link to instead.
+14. Check that the README links to this runbook rather than carrying a second copy of its steps.
+15. Confirm teardown covers what setup created, and refresh the verified-against line.
+16. Settle anything the steps above do not cover against the opening sentence: does the follower
     need this in order to operate the system, or is it there because the author knew it?
