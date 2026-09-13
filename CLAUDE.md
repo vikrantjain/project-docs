@@ -34,11 +34,15 @@ change widens what the skill covers.
 
 ## Rule numbers are an API
 
-Rules are cited by number from outside the list they live in: `readme` rule 3 cites `runbook`
-rule 7. Inserting a rule mid-list renumbers everything after it and silently breaks those
-citations. Before renumbering, grep both skills for `rule [0-9]` and fix what the shift moved.
-This has already broken once — `readme` cited runbook rule 6, the development-environment rule,
-when it meant rule 7, the split-from-the-README rule.
+Rules are cited by number from three places: the other skill (`readme` rule 3 cites `runbook`
+rule 7), the same list (`runbook` rule 15 cites rules 19 and 20), and the review checklist below
+it. Inserting a rule mid-list renumbers everything after it and silently breaks those citations.
+Before renumbering, grep both skills for `rule [0-9]` and fix what the shift moved. This has
+already broken once. `readme` cited runbook rule 6, the development-environment rule, when it
+meant rule 7, the split-from-the-README rule.
+
+The version in `plugin.json` is where a renumbering is announced, since a citation held outside
+this repo cannot be grepped.
 
 Two more consequences of the same thing:
 
