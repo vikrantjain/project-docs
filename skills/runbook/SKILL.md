@@ -125,17 +125,35 @@ order to operate the system, or is it there because the author knew it?
 
 ## Reviewing an existing runbook
 
-1. Read only the section headings, then say which section you would open for each thing the
-   system can do. A heading that names machinery rather than an outcome is the finding, and so
-   are two headings that reach the same outcome by different means.
-2. Read it as the follower: assume no knowledge of the system, and stop at the first step you
+1. Read only the opening lines and the section headings. From those alone, say what the runbook
+   gets you and which section you would open for each thing the system can do. A heading that
+   names machinery rather than an outcome is the finding, and so are two headings that reach the
+   same outcome by different means.
+2. Read each flow section's opening lines. They name what the flow achieves, what must already
+   have run, the end state that proves it worked, whether the section can be re-run, and where to
+   resume after a failure. A missing one of those is the finding.
+3. Read it as the follower: assume no knowledge of the system, and stop at the first step you
    could not execute from what is written above it. That step is the finding.
-3. Check each command block for an unlisted placeholder and each step for a result the reader
-   cannot verify.
-4. Cut anything explaining the system rather than instructing the reader — the scope rule. It
-   is not relocated unless it exists nowhere else.
-5. Cut developer environment setup, and cut any block that reproduces a script the project
+4. Check each command block for a placeholder that is not in the prerequisites, for prose
+   interleaved between its lines, and for any line the reader must edit or uncomment before
+   pasting.
+5. Check each step for a result the reader cannot verify. Check that each value a step produces
+   has a name, and that the later step refers to it by that name.
+6. Check that each step is one line saying what it does. A step carrying a paragraph where
+   nothing is non-obvious or destructive is the finding.
+7. Check that every destructive or irreversible step is marked and says what it destroys.
+   Teardown is included.
+8. Cut anything explaining the system rather than instructing the reader. That is rule 5, the
+   scope rule. It is not relocated unless it exists nowhere else.
+9. Cut developer environment setup, and cut any block that reproduces a script the project
    already ships. Replace the reproduced block with the path and the invocation.
-6. Where the runbook is split across files, check that the index reaches every flow and that no
-   flow file repeats setup it could link to instead.
-7. Confirm teardown covers what setup created, and refresh the verified-against line.
+10. Check that setup every flow needs sits in one section ahead of the flows, and that setup only
+    one flow needs sits inside that flow.
+11. Check that troubleshooting is a section rather than notes scattered through the steps. Each
+    entry names a symptom the follower can observe, then the fix.
+12. Where the runbook is split across files, check that the index reaches every flow and that no
+    flow file repeats setup it could link to instead. Check the README the same way: it links to
+    this runbook rather than carrying a second copy of its steps.
+13. Confirm teardown covers what setup created, and refresh the verified-against line.
+14. Settle anything the steps above do not cover against the opening sentence: does the follower
+    need this in order to operate the system, or is it there because the author knew it?

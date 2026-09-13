@@ -64,7 +64,16 @@ and route, or does it belong to whoever has already decided?
 1. Read only the first screen, then say what the project is and whether you would use it. If
    you cannot, the opening is the finding.
 2. Cut anything the reader executes beyond the quickstart, and anything that explains the
-   design — relocate to the runbook or the architecture document, leaving a link. It is not
+   design. Relocate it to the runbook or the architecture document and leave a link. It is not
    relocated unless it exists nowhere else.
-3. Delete every section that would read identically in another project.
-4. Follow each link and run the quickstart on a fresh environment.
+3. Cut the history: what a past version did, what it was rewritten from, migration notes, and
+   anything git or `CHANGELOG.md` already holds.
+4. Cut the status theatre: roadmaps, progress bars, "coming soon" lists, and every badge whose
+   state would not change a reader's decision.
+5. Delete every section that would read identically in another project.
+6. Name what is missing, not only what is surplus. Requirements above the quickstart, where to
+   file a bug, who owns the project, and links to `CONTRIBUTING.md` and `LICENSE`. An absent one
+   of those is a finding as much as an unnecessary section is.
+7. Follow each link and run the quickstart on a fresh environment.
+8. Settle anything the steps above do not cover against the opening sentence: does this help the
+   reader decide and route, or does it belong to whoever has already decided?
