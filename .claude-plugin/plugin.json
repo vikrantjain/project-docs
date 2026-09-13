@@ -1,9 +1,17 @@
 {
   "name": "project-docs",
   "description": "Guidelines for writing the documents a project ships with: READMEs and runbooks.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
-    "name": "Vikrant Jain",
-    "email": "vikrant.jain@onespan.com"
-  }
+    "name": "Vikrant Jain"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/vikrantjain/project-docs",
+  "keywords": [
+    "documentation",
+    "readme",
+    "runbook",
+    "technical-writing",
+    "code-review"
+  ]
 }
