@@ -52,24 +52,30 @@ order to operate the system, or is it there because the author knew it?
 
 9. **One block per path, pasted whole.** A command block is copy-pastable as it stands: no prose
    interleaved, no line the reader must edit or uncomment mid-paste. Two ways to run a step are
-   two blocks, each under a heading saying when to use it, and so is an optional-flag variant.
-   Placeholders use one fixed convention — `<PROJECT_ID>` — and every placeholder appears in
-   the prerequisites. Where a step cannot be a command (a click path, a console field), name
-   the exact screen, the exact control and the exact value.
+   two blocks, each under a heading saying when to use it. An optional-flag variant is a second
+   block too. Where a step cannot be a command (a click path, a console field), name the exact
+   screen, the exact control and the exact value.
 
-10. **Reference a script that already exists; never reproduce it.** Where the repository or the
+10. **One placeholder convention, fixed across the runbook.** Write every placeholder
+    `<PROJECT_ID>`. Every placeholder the follower supplies appears in the prerequisites under
+    the same name it carries in the block.
+
+11. **Reference a script that already exists; never reproduce it.** Where the repository or the
     machine already carries the script, the step gives its path, the command that invokes it,
     the arguments to pass and the output to expect. A copy of the body in the runbook is a
     second version that drifts from the one that runs. Inline a block only for commands that
     exist nowhere else, and for those consider whether they should become a script.
 
-11. **Mark destructive and irreversible steps, and say what they destroy.** This applies inside
+12. **Mark destructive and irreversible steps, and say what they destroy.** This applies inside
     teardown as much as anywhere else.
 
-12. **Never carry state in the reader's head.** A step that produces a value the follower needs
-    later gives that value a name, and the later step refers to it by that name.
+13. **Never carry state in the reader's head.** A step that produces a value the follower needs
+    later gives that value a name in the placeholder convention, and the later step refers to it
+    by that name. A produced value is the one placeholder that does not belong in the
+    prerequisites. The follower cannot supply it before the run, so it is introduced at the step
+    that produces it.
 
-13. **The top level is the list of flows the follower might come to run.** A follower arrives
+14. **The top level is the list of flows the follower might come to run.** A follower arrives
     with a goal: issue a credential to a wallet and present it to a verifier, or rotate a
     signing key. Each goal is one section, named after what it achieves. A section named after
     machinery, such as "Start the services" or "Call the token endpoint", is a step inside a
@@ -77,23 +83,23 @@ order to operate the system, or is it there because the author knew it?
     sequences, they are two sections, and the runbook says which one a first-time follower
     should run.
 
-14. **Open each flow section the way the runbook opens.** Name what the flow achieves, what must
+15. **Open each flow section the way the runbook opens.** Name what the flow achieves, what must
     already have run, and the observable end state that proves it worked. Link the setup section
     for the preconditions instead of repeating its steps. A follower must be able to pick their
     section from these lines without reading the steps under any of them.
 
-15. **Two ways to run one flow are two paths inside that flow's section.** A browser path, a
+16. **Two ways to run one flow are two paths inside that flow's section.** A browser path, a
     terminal path and a pipeline invocation that reach the same end state go under headings
     saying when to use each, within the section for the flow they all perform. Splitting them
     at the top level makes the follower reconcile two sections to answer one question. Within a
     path, do not braid the alternatives back together with conditional asides.
 
-16. **Write the shared setup once, ahead of the flows.** What every flow needs — the services
+17. **Write the shared setup once, ahead of the flows.** What every flow needs — the services
     running, the seeded data, the trust configuration — is one section before them, ending in
     its own verified state. Setup that only one flow needs belongs in that flow's section, not
     in the shared one.
 
-17. **Split into files once the flows stop fitting one read-through.** One file per flow that
+18. **Split into files once the flows stop fitting one read-through.** One file per flow that
     can be run on its own, one for the shared setup, one for teardown, and an index file that is
     the only entry point. The index gives each flow its one-line statement of what it achieves
     and when to run it, and links it; nothing the follower executes lives in the index. Each
@@ -101,17 +107,17 @@ order to operate the system, or is it there because the author knew it?
     A file per service or per step scatters one procedure across the tree and puts the follower
     back to guessing which file to open.
 
-18. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
+19. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
     a section is safe. Where the underlying operation makes that false, the section says so.
 
-19. **Say how to recover from a failure mid-run.** The follower who is stranded halfway has
+20. **Say how to recover from a failure mid-run.** The follower who is stranded halfway has
     resources half-created, and needs to know whether to fix and resume, or tear down and start
     again. Name the resume point per section, or point at teardown.
 
-20. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
+21. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
     the runbook is long. Each entry is a symptom the follower can observe, then the fix.
 
-21. **End with teardown.** Everything the runbook created, removed in an order that works,
+22. **End with teardown.** Everything the runbook created, removed in an order that works,
     including anything created only on the failure paths.
 
 ## Reviewing an existing runbook
