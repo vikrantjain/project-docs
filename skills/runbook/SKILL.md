@@ -1,6 +1,6 @@
 ---
 name: runbook
-description: Guidelines for writing a runbook — what it may contain, how each step is worded, and which sections it must carry. Use before creating, updating or reviewing a runbook, a setup guide, an operational procedure or a "how to run this" document.
+description: Guidelines for writing a runbook — what it may contain, how it is organised into flows and files, how each step is worded, and which sections it must carry. Use before creating, updating or reviewing a runbook, a setup guide, an operational procedure or a "how to run this" document.
 ---
 
 # Runbooks
@@ -67,31 +67,64 @@ order to do the next thing, or is it there because the author knew it?
 12. **Never carry state in the reader's head.** A step that produces a value the follower needs
     later gives that value a name, and the later step refers to it by that name.
 
-13. **Separate the execution flows.** If the system can be driven from a UI, from a terminal
-    and from an automated pipeline, each gets its own section. Do not braid them into one
-    sequence with conditional asides.
+13. **The top level is the list of flows the follower might come to run.** A follower arrives
+    with a goal: issue a credential to a wallet and present it to a verifier, or rotate a
+    signing key. Each goal is one section, named after what it achieves. A section named after
+    machinery, such as "Start the services" or "Call the token endpoint", is a step inside a
+    flow rather than a top-level section. Where two flows drive the same services in different
+    sequences, they are two sections, and the runbook says which one a first-time follower
+    should run.
 
-14. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
+14. **Open each flow section the way the runbook opens.** Name what the flow achieves, what must
+    already have run, and the observable end state that proves it worked. Link the setup section
+    for the preconditions instead of repeating its steps. A follower must be able to pick their
+    section from these lines without reading the steps under any of them.
+
+15. **Two ways to run one flow are two paths inside that flow's section.** A browser path, a
+    terminal path and a pipeline invocation that reach the same end state go under headings
+    saying when to use each, within the section for the flow they all perform. Splitting them
+    at the top level makes the follower reconcile two sections to answer one question. Within a
+    path, do not braid the alternatives back together with conditional asides.
+
+16. **Write the shared setup once, ahead of the flows.** What every flow needs — the services
+    running, the seeded data, the trust configuration — is one section before them, ending in
+    its own verified state. Setup that only one flow needs belongs in that flow's section, not
+    in the shared one.
+
+17. **Split into files once the flows stop fitting one read-through.** One file per flow that
+    can be run on its own, one for the shared setup, one for teardown, and an index file that is
+    the only entry point. The index gives each flow its one-line statement of what it achieves
+    and when to run it, and links it; nothing the follower executes lives in the index. Each
+    flow file links its prerequisites rather than copying them. Do not split finer than a flow.
+    A file per service or per step scatters one procedure across the tree and puts the follower
+    back to guessing which file to open.
+
+18. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
     a section is safe. Where the underlying operation makes that false, the section says so.
 
-15. **Say how to recover from a failure mid-run.** The follower who is stranded halfway has
+19. **Say how to recover from a failure mid-run.** The follower who is stranded halfway has
     resources half-created, and needs to know whether to fix and resume, or tear down and start
     again. Name the resume point per section, or point at teardown.
 
-16. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
+20. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
     the runbook is long. Each entry is a symptom the follower can observe, then the fix.
 
-17. **End with teardown.** Everything the runbook created, removed in an order that works,
+21. **End with teardown.** Everything the runbook created, removed in an order that works,
     including anything created only on the failure paths.
 
 ## Reviewing an existing runbook
 
-1. Read it as the follower: assume no knowledge of the system, and stop at the first step you
+1. Read only the section headings, then say which section you would open for each thing the
+   system can do. A heading that names machinery rather than an outcome is the finding, and so
+   are two headings that reach the same outcome by different means.
+2. Read it as the follower: assume no knowledge of the system, and stop at the first step you
    could not execute from what is written above it. That step is the finding.
-2. Check each command block for an unlisted placeholder and each step for a result the reader
+3. Check each command block for an unlisted placeholder and each step for a result the reader
    cannot verify.
-3. Cut anything explaining the system rather than instructing the reader — the scope rule. It
+4. Cut anything explaining the system rather than instructing the reader — the scope rule. It
    is not relocated unless it exists nowhere else.
-4. Cut developer environment setup, and cut any block that reproduces a script the project
+5. Cut developer environment setup, and cut any block that reproduces a script the project
    already ships. Replace the reproduced block with the path and the invocation.
-5. Confirm teardown covers what setup created, and refresh the verified-against line.
+6. Where the runbook is split across files, check that the index reaches every flow and that no
+   flow file repeats setup it could link to instead.
+7. Confirm teardown covers what setup created, and refresh the verified-against line.

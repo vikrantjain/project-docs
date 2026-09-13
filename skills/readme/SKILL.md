@@ -23,7 +23,7 @@ and route, or does it belong to whoever has already decided?
 
 3. **Orientation, not instruction.** The README routes the reader; it does not walk them
    through work. Anything the reader executes at length belongs in a runbook — see the
-   `runbook` skill, rule 6. What stays here is what the thing is, how it fits, and where the
+   `runbook` skill, rule 7. What stays here is what the thing is, how it fits, and where the
    docs are.
 
 4. **A quickstart earns its place only while it stays short.** Install and one command that
