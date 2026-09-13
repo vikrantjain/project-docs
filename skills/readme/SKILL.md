@@ -14,6 +14,9 @@ and route, or does it belong to whoever has already decided?
 
 ## The rules
 
+The rules are grouped by subject, not by the order the sections appear in. Rule 5's requirements
+sit above rule 4's quickstart in the document itself.
+
 1. **Open with what it is, in one or two sentences.** A plain description of the thing, in the
    words someone searching for it would use. Not a tagline, not a claim about how good it is.
    The reader must be able to reject the project from these sentences alone.
@@ -42,7 +45,7 @@ and route, or does it belong to whoever has already decided?
    rewritten in", no migration notes, no record of what a past version did.
 
 8. **No status theatre.** No roadmap, no progress bars, no "coming soon" lists, no badge wall.
-   A badge stays only when its state changes a reader's decision — build status, published
+   A badge stays only when its state changes a reader's decision: build status, published
    version. Maturity is stated in a sentence if it is unusual: pre-release, unmaintained,
    internal-only.
 

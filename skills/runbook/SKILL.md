@@ -14,20 +14,24 @@ order to operate the system, or is it there because the author knew it?
 
 ## The rules
 
-1. **Open with who and what.** Two or three sentences: what this runbook gets you, and who
-   runs it. Where a run is triggered by something — an incident, a release, a rotation — say
-   what.
+Rules 14 to 18 govern the shape of the document: the flows it divides into, the setup they
+share, and the files it splits across. The rest govern what goes inside a section. When starting
+a runbook from nothing, settle the shape first.
 
-2. **State what it was last verified against** — the date, and the versions or environment it
-   was run on. It is the cheapest signal a reader has for whether to trust the rest.
+1. **Open with who and what.** Two or three sentences: what this runbook gets you, and who
+   runs it. Where a run is triggered by something, say what: an incident, a release, a
+   rotation.
+
+2. **State what it was last verified against.** Give the date, and the versions or environment
+   it was run on. A follower who can see when it last worked knows how much of it to trust.
 
 3. **List prerequisites before the first step.** Access and credentials, installed tools with
    their versions, and every placeholder value the reader must supply. The reader gathers them
    once, at the top, rather than discovering a missing one at step 14.
 
-4. **Setup starts from a fresh target environment and ends in a verified state.** The last step is a
-   command whose expected output is shown. Any earlier step that can fail silently shows its
-   expected result too, so the follower can tell success from failure before moving on. "It
+4. **Setup starts from a fresh target environment and ends in a verified state.** Its last step
+   is a command whose expected output is shown. Any earlier step that can fail silently shows
+   its expected result too, so the follower can tell success from failure before moving on. "It
    should work now" is not an end state.
 
 5. **Only what the follower must do.** No architecture, no rationale for the design, no
@@ -96,15 +100,15 @@ order to operate the system, or is it there because the author knew it?
     at the top level makes the follower reconcile two sections to answer one question. Within a
     path, do not braid the alternatives back together with conditional asides.
 
-17. **Write the shared setup once, ahead of the flows.** What every flow needs — the services
-    running, the seeded data, the trust configuration — is one section before them, ending in
+17. **Write the shared setup once, ahead of the flows.** One section before them carries what
+    every flow needs: the services running, the seeded data, the trust configuration. It ends in
     its own verified state. Setup that only one flow needs belongs in that flow's section, not
     in the shared one.
 
 18. **Split into files once the flows stop fitting one read-through.** One file per flow that
     can be run on its own, one for the shared setup, one for teardown, and an index file that is
     the only entry point. The index gives each flow its one-line statement of what it achieves
-    and when to run it, and links it; nothing the follower executes lives in the index. Each
+    and when to run it, and links it. Nothing the follower executes lives in the index. Each
     flow file links its prerequisites rather than copying them. Do not split finer than a flow.
     A file per service or per step scatters one procedure across the tree and puts the follower
     back to guessing which file to open.
