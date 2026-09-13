@@ -40,10 +40,11 @@ order to do the next thing, or is it there because the author knew it?
    follower needs and link to its install instructions; they do not teach the install.
 
 7. **Split from the README once the procedure outgrows a skim.** A small project's README
-   quickstart is its setup runbook; a second copy is the one that goes stale. Move the steps out
+   quickstart is its setup runbook. A second copy is the one that goes stale. Move the steps out
    when they are longer than what someone reads to decide whether to care, and leave a link
-   behind. What stays in the README is orientation — what the thing is, how it fits, where the
-   docs are; see the `readme` skill. What moves is anything the reader executes.
+   behind. What moves is anything the reader executes beyond the quickstart. What stays in the
+   README is orientation: what the thing is, how it fits, where the docs are. See the `readme`
+   skill.
 
 8. **One line per step, saying what it does.** Add prose only where the step is non-obvious or
    destructive. A runbook where every step carries a paragraph stops being followable.

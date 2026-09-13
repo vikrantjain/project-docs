@@ -22,9 +22,9 @@ and route, or does it belong to whoever has already decided?
    a larger system, say which system and what part it plays. One paragraph.
 
 3. **Orientation, not instruction.** The README routes the reader; it does not walk them
-   through work. Anything the reader executes at length belongs in a runbook — see the
-   `runbook` skill, rule 7. What stays here is what the thing is, how it fits, and where the
-   docs are.
+   through work. Anything the reader executes beyond the quickstart belongs in a runbook. See
+   the `runbook` skill, rule 7. What stays here is what the thing is, how it fits, and where
+   the docs are.
 
 4. **A quickstart earns its place only while it stays short.** Install and one command that
    proves the thing runs, with its expected output. Once it grows past what someone reads to
