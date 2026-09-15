@@ -1,6 +1,6 @@
 ---
 name: runbook
-description: Guidelines for writing a runbook — what it may contain, how it is organised into flows and files, how each step is worded, and which sections it must carry. Use before creating, updating or reviewing a runbook, a setup guide, an operational procedure or a "how to run this" document.
+description: Guidelines for writing and reviewing a runbook — what it may contain, how it is organised into flows and files, how each step is worded, and which sections it must carry. Use before creating, updating or reviewing a runbook, a setup guide, an operational procedure or a "how to run this" document.
 ---
 
 # Runbooks
@@ -14,9 +14,10 @@ order to operate the system, or is it there because the author knew it?
 
 ## The rules
 
-Rules 14 to 18 govern the shape of the document: the flows it divides into, the setup they
-share, and the files it splits across. The rest govern what goes inside a section. When starting
-a runbook from nothing, settle the shape first.
+Rules 14 to 18 govern the shape of the document: the flows it divides into, how each flow
+section opens and what paths it holds, the setup they share, and the files it splits across.
+The rest govern what goes inside a section. When starting a runbook from nothing, settle the
+shape first.
 
 1. **Open with who and what.** Two or three sentences: what this runbook gets you, and who
    runs it. Where a run is triggered by something, say what: an incident, a release, a
@@ -29,10 +30,10 @@ a runbook from nothing, settle the shape first.
    their versions, and every placeholder value the reader must supply. The reader gathers them
    once, at the top, rather than discovering a missing one at step 14.
 
-4. **Setup starts from a fresh target environment and ends in a verified state.** Its last step
-   is a command whose expected output is shown. Any earlier step that can fail silently shows
-   its expected result too, so the follower can tell success from failure before moving on. "It
-   should work now" is not an end state.
+4. **Every section the follower runs ends in a verified state.** Its last step is a command
+   whose expected output is shown. Any earlier step that can fail silently shows its expected
+   result too, so the follower can tell success from failure before moving on. "It should work
+   now" is not an end state.
 
 5. **Only what the follower must do.** No architecture, no rationale for the design, no
    narration of what was built or what went wrong while building it. Two things this rule
@@ -73,7 +74,7 @@ a runbook from nothing, settle the shape first.
     machine already carries the script, the step gives its path, the command that invokes it,
     the arguments to pass and the output to expect. A copy of the body in the runbook is a
     second version that drifts from the one that runs. Inline a block only for commands that
-    exist nowhere else, and for those consider whether they should become a script.
+    exist nowhere else.
 
 12. **Mark destructive and irreversible steps, and say what they destroy.** This applies inside
     teardown as much as anywhere else.
@@ -107,9 +108,10 @@ a runbook from nothing, settle the shape first.
     path, do not braid the alternatives back together with conditional asides.
 
 17. **Write the shared setup once, ahead of the flows.** One section before them carries what
-    every flow needs: the services running, the seeded data, the trust configuration. It ends in
-    its own verified state. Setup that only one flow needs belongs in that flow's section, not
-    in the shared one.
+    every flow needs: the services running, the seeded data, the trust configuration. It starts
+    from a target environment carrying nothing but the prerequisites, so a follower who has met
+    those and done nothing else can run it start to finish. Setup that only one flow needs
+    belongs in that flow's section, not in the shared one.
 
 18. **Keep the runbook in one file unless its owner decides to split it.** One document needs no
     index and no cross-file links, so it is the default however many flows it holds. Where the
@@ -138,6 +140,10 @@ a runbook from nothing, settle the shape first.
 22. **End with teardown.** Everything the runbook created, removed in an order that works,
     including anything created only on the failure paths.
 
+23. **Say how long a step takes when it is long enough to look stuck.** A follower who does not
+    know the system cannot tell a twelve-minute deploy from a hung one. Give the rough duration,
+    and where the wait has an observable end, the thing to watch for.
+
 ## Reviewing an existing runbook
 
 1. Read only the opening lines and the section headings. From those alone, say what the runbook
@@ -147,35 +153,46 @@ a runbook from nothing, settle the shape first.
    finding: "Credential issuance" names a subject, "Issue a credential to a wallet" names what
    the follower gets.
 2. Read each flow section's opening lines. They name what the flow achieves, what must already
-   have run, the end state that proves it worked, whether the section can be re-run, and where to
-   resume after a failure. A missing one of those is the finding.
-3. Read it as the follower: assume no knowledge of the system, and stop at the first step you
+   have run, and the end state that proves it worked; a missing one of those is the finding.
+   Where the section cannot be re-run, or where a failure partway needs a named resume point,
+   they say that too.
+3. Name what is missing at the document level, not only what is surplus: who runs this and what
+   triggers a run, the date and versions it was last verified against, and a prerequisites list
+   naming access, credentials, tool versions and every placeholder the follower supplies. An
+   absent one of those is a finding as much as a surplus section is.
+4. Read it as the follower: assume no knowledge of the system, and stop at the first step you
    could not execute from what is written above it. That step is the finding.
-4. Check each command block for a placeholder that is not in the prerequisites, for prose
-   interleaved between its lines, and for any line the reader must edit or uncomment before
-   pasting.
-5. Check each step for a result the reader cannot verify. Check that each value a step produces
-   has a name, and that the later step refers to it by that name.
-6. Read each step's line with its command hidden. A line naming only the mechanism, from which
+5. Check each command block for a placeholder that is neither in the prerequisites nor produced
+   by an earlier step, for prose interleaved between its lines, and for any line the reader must
+   edit or uncomment before pasting. Check that every placeholder is written in one convention
+   throughout. Where a step is not a command, check that it names the exact screen, the exact
+   control and the exact value.
+6. Check that two ways to reach one end state are two blocks or two paths, each under a heading
+   saying when to use it, and that neither is braided back into the other by a conditional aside.
+7. Check each step for a result the reader cannot verify, and for a wait long enough to look
+   stuck that does not say how long it takes. Check that each value a step produces has a name,
+   and that the later step refers to it by that name.
+8. Read each step's line with its command hidden. A line naming only the mechanism, from which
    you cannot say what the follower gets, is the finding. So is a grouping heading inside a flow
    that names machinery. Then check each step is one line: a step carrying a paragraph where
    nothing is non-obvious or destructive is the finding.
-7. Check that every destructive or irreversible step is marked and says what it destroys.
+9. Check that every destructive or irreversible step is marked and says what it destroys.
    Teardown is included.
-8. Cut anything explaining the system rather than instructing the reader. That is rule 5, the
-   scope rule. It is not relocated unless it exists nowhere else.
-9. Cut developer environment setup, and cut any block that reproduces a script the project
-   already ships. Replace the reproduced block with the path and the invocation.
-10. Check that setup every flow needs sits in one section ahead of the flows, and that setup only
-    one flow needs sits inside that flow.
-11. Check that troubleshooting is a section rather than notes scattered through the steps. Each
+10. Cut anything explaining the system rather than instructing the reader. That is rule 5, the
+    scope rule. It is not relocated unless it exists nowhere else.
+11. Cut developer environment setup, and cut any block that reproduces a script the project
+    already ships. Replace the reproduced block with the path and the invocation.
+12. Check that setup every flow needs sits in one section ahead of the flows, that it starts from
+    an environment carrying nothing but the prerequisites, and that setup only one flow needs
+    sits inside that flow.
+13. Check that troubleshooting is a section rather than notes scattered through the steps. Each
     entry names a symptom the follower can observe, then the fix.
-12. Check whether it should be one file at all. A runbook split across files whose owner did not
+14. Check whether it should be one file at all. A runbook split across files whose owner did not
     ask for the split is the finding, and so is any part of a split runbook living outside the
     `runbook/` folder.
-13. Where the runbook is split, check that `index.md` reaches every flow, that nothing the
+15. Where the runbook is split, check that `index.md` reaches every flow, that nothing the
     follower executes lives in it, and that no flow file repeats setup it could link to instead.
-14. Check that the README links to this runbook rather than carrying a second copy of its steps.
-15. Confirm teardown covers what setup created, and refresh the verified-against line.
-16. Settle anything the steps above do not cover against the opening sentence: does the follower
+16. Check that the README links to this runbook rather than carrying a second copy of its steps.
+17. Confirm teardown covers what setup created, and refresh the verified-against line.
+18. Settle anything the steps above do not cover against the opening sentence: does the follower
     need this in order to operate the system, or is it there because the author knew it?
