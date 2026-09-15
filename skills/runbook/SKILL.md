@@ -51,7 +51,12 @@ a runbook from nothing, settle the shape first.
    README is orientation: what the thing is, how it fits, where the docs are. See the `readme`
    skill.
 
-8. **One line per step, saying what it does.** Add prose only where the step is non-obvious or
+8. **One line per step, naming what it achieves.** The line says what the follower gets and the
+   command says how: "Restart the gateway so it picks up the new trust list", not "Run
+   `docker compose restart gateway`". A follower who can see only the mechanism cannot tell
+   whether the step has already run, what its failure costs, or whether it can be skipped. Where
+   a flow is long enough that its steps are grouped under headings, each heading names the
+   outcome of its group by the same test. Add prose only where the step is non-obvious or
    destructive. A runbook where every step carries a paragraph stops being followable.
 
 9. **One block per path, pasted whole.** A command block is copy-pastable as it stands: no prose
@@ -81,11 +86,12 @@ a runbook from nothing, settle the shape first.
 
 14. **The top level is the list of flows the follower might come to run.** A follower arrives
     with a goal: issue a credential to a wallet and present it to a verifier, or rotate a
-    signing key. Each goal is one section, named after what it achieves. A section named after
-    machinery, such as "Start the services" or "Call the token endpoint", is a step inside a
-    flow rather than a top-level section. Where two flows drive the same services in different
-    sequences, they are two sections, and the runbook says which one a first-time follower
-    should run.
+    signing key. Each goal is one section, named after what it achieves. Name it as the outcome
+    the follower reaches, not as the subject the section covers: "Issue a credential to a wallet",
+    not "Credential issuance". A section named after machinery, such as "Start the services" or
+    "Call the token endpoint", is a step inside a flow rather than a top-level section. Where
+    two flows drive the same services in different sequences, they are two sections, and the
+    runbook says which one a first-time follower should run.
 
 15. **Open each flow section with what the follower needs before starting it.** Name what the
     flow achieves, what must already have run, and the observable end state that proves it
@@ -137,7 +143,9 @@ a runbook from nothing, settle the shape first.
 1. Read only the opening lines and the section headings. From those alone, say what the runbook
    gets you and which section you would open for each thing the system can do. A heading that
    names machinery rather than an outcome is the finding, and so are two headings that reach the
-   same outcome by different means.
+   same outcome by different means. A heading naming a topic rather than an outcome is the same
+   finding: "Credential issuance" names a subject, "Issue a credential to a wallet" names what
+   the follower gets.
 2. Read each flow section's opening lines. They name what the flow achieves, what must already
    have run, the end state that proves it worked, whether the section can be re-run, and where to
    resume after a failure. A missing one of those is the finding.
@@ -148,7 +156,9 @@ a runbook from nothing, settle the shape first.
    pasting.
 5. Check each step for a result the reader cannot verify. Check that each value a step produces
    has a name, and that the later step refers to it by that name.
-6. Check that each step is one line saying what it does. A step carrying a paragraph where
+6. Read each step's line with its command hidden. A line naming only the mechanism, from which
+   you cannot say what the follower gets, is the finding. So is a grouping heading inside a flow
+   that names machinery. Then check each step is one line: a step carrying a paragraph where
    nothing is non-obvious or destructive is the finding.
 7. Check that every destructive or irreversible step is marked and says what it destroys.
    Teardown is included.
