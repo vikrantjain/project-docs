@@ -1,6 +1,6 @@
 ---
 name: readme
-description: Guidelines for writing a README — what belongs in it, what belongs somewhere else, and how far it goes before the reader is sent elsewhere. Use before creating, updating or reviewing a README or a project's front-page documentation.
+description: Guidelines for writing and reviewing a README — what belongs in it, what belongs somewhere else, how far it goes before the reader is sent elsewhere, and where it sends the reader next. Use before creating, updating or reviewing a README or a project's front-page documentation.
 ---
 
 # READMEs
@@ -62,21 +62,35 @@ sit above rule 4's quickstart in the document itself.
 12. **Every link resolves and every command runs.** A broken link on the front page is the
     cheapest signal a reader has that the rest is stale.
 
+13. **Link the runbook.** Whatever the reader executes was moved out of here. The front page
+    is where they look for it, so a README that sends them nowhere leaves the procedure
+    unfindable. Where the quickstart is still the whole procedure, there is nothing to link
+    yet. See the `runbook` skill, rule 7.
+
 ## Reviewing an existing README
 
 1. Read only the first screen, then say what the project is and whether you would use it. If
    you cannot, the opening is the finding.
 2. Cut anything the reader executes beyond the quickstart, and anything that explains the
    design. Relocate it to the runbook or the architecture document and leave a link. It is not
-   relocated unless it exists nowhere else.
-3. Cut the history: what a past version did, what it was rewritten from, migration notes, and
+   relocated unless it exists nowhere else. A diagram the reader could place the project without
+   is the same finding.
+3. Check the quickstart itself. If it is longer than what someone reads to decide whether to
+   care, it belongs in a runbook with a link left behind. If its one command does not show the
+   output that proves the thing ran, that is the finding.
+4. Cut the history: what a past version did, what it was rewritten from, migration notes, and
    anything git or `CHANGELOG.md` already holds.
-4. Cut the status theatre: roadmaps, progress bars, "coming soon" lists, and every badge whose
+5. Cut the status theatre: roadmaps, progress bars, "coming soon" lists, and every badge whose
    state would not change a reader's decision.
-5. Delete every section that would read identically in another project.
-6. Name what is missing, not only what is surplus. Requirements above the quickstart, where to
-   file a bug, who owns the project, and links to `CONTRIBUTING.md` and `LICENSE`. An absent one
-   of those is a finding as much as an unnecessary section is.
-7. Follow each link and run the quickstart on a fresh environment.
-8. Settle anything the steps above do not cover against the opening sentence: does this help the
+6. Delete every section that was added because other READMEs have it and says nothing specific
+   to this project. The support, contribution and licence links that rules 10 and 11 require
+   stay, as links rather than chapters.
+7. Name what is missing, not only what is surplus: who it is for and what problem it solves,
+   requirements above the quickstart, where to file a bug, where to ask a question, who owns
+   the project, a link to the runbook and to the architecture document wherever those exist,
+   and links to `CONTRIBUTING.md` and `LICENSE`. Where the project's maturity is unusual —
+   pre-release, unmaintained, internal-only — a sentence saying so. An absent one of those is a
+   finding as much as an unnecessary section is.
+8. Follow each link and run the quickstart on a fresh environment.
+9. Settle anything the steps above do not cover against the opening sentence: does this help the
    reader decide and route, or does it belong to whoever has already decided?
