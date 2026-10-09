@@ -39,7 +39,8 @@ sit above rule 4's quickstart in the document itself.
 
 6. **Link the architecture, do not restate it.** One line pointing at the design document. A
    diagram belongs here only when the reader cannot place the project without it, and then it
-   is the smallest one that does the job.
+   is the smallest one that does the job. Rationale about one block of code belongs beside that
+   code rather than on the front page. See the `code-comments` skill.
 
 7. **No history and no changelog.** Git holds one and `CHANGELOG.md` holds the other. No "now
    rewritten in", no migration notes, no record of what a past version did.
@@ -72,9 +73,9 @@ sit above rule 4's quickstart in the document itself.
 1. Read only the first screen, then say what the project is and whether you would use it. If
    you cannot, the opening is the finding.
 2. Cut anything the reader executes beyond the quickstart, and anything that explains the
-   design. Relocate it to the runbook or the architecture document and leave a link. It is not
-   relocated unless it exists nowhere else. A diagram the reader could place the project without
-   is the same finding.
+   design. Relocate it to the runbook, the architecture document, or a comment beside the code
+   it explains, and leave a link. It is not relocated unless it exists nowhere else. A diagram
+   the reader could place the project without is the same finding.
 3. Check the quickstart itself. If it is longer than what someone reads to decide whether to
    care, it belongs in a runbook with a link left behind. If its one command does not show the
    output that proves the thing ran, that is the finding.
