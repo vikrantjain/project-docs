@@ -64,10 +64,8 @@ the reader could not have read off it, or is it a fact about something else?
    deleting any one sentence costs the reader something they could not have read off the code. A
    long comment stays when every sentence passes that test, and a short one goes when none does.
 
-9. **Put each comment where its reader is.** A comment at the head of a file says what the unit
-   is for and how it sits against the ones beside it. A comment attached to a callable carries
-   rule 2's contract. A comment inside a body answers a question that arises at one exact line,
-   and sits against that line. A constraint written in the wrong place is found by nobody.
+9. **Put each comment where its reader is.** A constraint written in the wrong place is found by
+   nobody, so the comment sits against the thing it constrains.
 
 10. **A comment that disagrees with the code is a bug.** It is worse than no comment, because the
     reader trusts it. Change the comment in the same edit as the code it describes, and treat a
