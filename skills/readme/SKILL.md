@@ -65,8 +65,8 @@ sit above rule 4's quickstart in the document itself.
 
 13. **Link the runbook.** Whatever the reader executes was moved out of here. The front page
     is where they look for it, so a README that sends them nowhere leaves the procedure
-    unfindable. Where the quickstart is still the whole procedure, there is nothing to link
-    yet. See the `runbook` skill, rule 7.
+    unfindable. Where the quickstart is still the whole procedure, it is the runbook. Until the
+    procedure moves out, there is nothing to link. See the `runbook` skill, rule 7.
 
 ## Reviewing an existing README
 
