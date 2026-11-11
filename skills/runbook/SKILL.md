@@ -33,7 +33,9 @@ shape first.
 4. **Every section the follower runs ends in a verified state.** Its last step is a command
    whose expected output is shown. Any earlier step that can fail silently shows its expected
    result too, so the follower can tell success from failure before moving on. "It should work
-   now" is not an end state.
+   now" is not an end state. A step long enough to look stuck says roughly how long it takes,
+   and where the wait has an observable end, what to watch for: a follower who does not know
+   the system cannot tell a twelve-minute deploy from a hung one.
 
 5. **Only what the follower must do.** No architecture, no rationale for the design, no
    narration of what was built or what went wrong while building it. Two things this rule
@@ -55,7 +57,7 @@ shape first.
    skill.
 
 8. **One line per step, naming what it achieves.** The line says what the follower gets and the
-   command says how: "Restart the gateway so it picks up the new trust list", not "Run
+   command says how: "Restart the gateway so it picks up the new certificate", not "Run
    `docker compose restart gateway`". A follower who can see only the mechanism cannot tell
    whether the step has already run, what its failure costs, or whether it can be skipped. Where
    a flow is long enough that its steps are grouped under headings, each heading names the
@@ -88,20 +90,22 @@ shape first.
     that produces it.
 
 14. **The top level is the list of flows the follower might come to run.** A follower arrives
-    with a goal: issue a credential to a wallet and present it to a verifier, or rotate a
-    signing key. Each goal is one section, named after what it achieves. Name it as the outcome
-    the follower reaches, not as the subject the section covers: "Issue a credential to a wallet",
-    not "Credential issuance". A section named after machinery, such as "Start the services" or
+    with a goal: restore a backup into a fresh environment, or rotate a signing key. Each goal
+    is one section, named after what it achieves. Name it as the outcome the follower reaches,
+    not as the subject the section covers: "Rotate the signing key", not "Key rotation". A
+    section named after machinery, such as "Start the services" or
     "Call the token endpoint", is a step inside a flow rather than a top-level section. Where
     two flows drive the same services in different sequences, they are two sections, and the
     runbook says which one a first-time follower should run.
 
 15. **Open each flow section with what the follower needs before starting it.** Name what the
     flow achieves, what must already have run, and the observable end state that proves it
-    worked. Say whether the section can be re-run, and where to resume if it fails partway.
-    Rules 19 and 20 say when each of those two is needed. Link the setup section for the
-    preconditions instead of repeating its steps. A follower must be able to pick their section
-    from these lines without reading the steps under any of them.
+    worked. Say whether the section can be re-run: the follower assumes repeating it is safe,
+    so where the operation makes that false, the opening lines say so. Say where to resume if
+    it fails partway, or point at teardown: a follower stranded halfway has resources
+    half-created and needs to know whether to fix and resume or start again. Link the setup
+    section for the preconditions instead of repeating its steps. A follower must be able to
+    pick their section from these lines without reading the steps under any of them.
 
 16. **Two ways to run one flow are two paths inside that flow's section.** A browser path, a
     terminal path and a pipeline invocation that reach the same end state go under headings
@@ -128,23 +132,11 @@ shape first.
     per service or per step scatters one procedure across the tree and puts the follower back to
     guessing which file to open.
 
-19. **Say which sections cannot be re-run.** The follower's default assumption is that repeating
-    a section is safe. Where the underlying operation makes that false, the section's opening
-    lines say so.
-
-20. **Say how to recover from a failure mid-run.** The follower who is stranded halfway has
-    resources half-created, and needs to know whether to fix and resume, or tear down and start
-    again. Name the resume point in the section's opening lines, or point at teardown.
-
-21. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
+19. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
     the runbook is long. Each entry is a symptom the follower can observe, then the fix.
 
-22. **End with teardown.** Everything the runbook created, removed in an order that works,
+20. **End with teardown.** Everything the runbook created, removed in an order that works,
     including anything created only on the failure paths.
-
-23. **Say how long a step takes when it is long enough to look stuck.** A follower who does not
-    know the system cannot tell a twelve-minute deploy from a hung one. Give the rough duration,
-    and where the wait has an observable end, the thing to watch for.
 
 ## Reviewing an existing runbook
 
@@ -152,8 +144,8 @@ shape first.
    gets you and which section you would open for each thing the system can do. A heading that
    names machinery rather than an outcome is the finding, and so are two headings that reach the
    same outcome by different means. A heading naming a topic rather than an outcome is the same
-   finding: "Credential issuance" names a subject, "Issue a credential to a wallet" names what
-   the follower gets.
+   finding: "Key rotation" names a subject, "Rotate the signing key" names what the follower
+   gets.
 2. Read each flow section's opening lines. They name what the flow achieves, what must already
    have run, and the end state that proves it worked; a missing one of those is the finding.
    Where the section cannot be re-run, or where a failure partway needs a named resume point,
@@ -196,6 +188,6 @@ shape first.
 15. Where the runbook is split, check that `index.md` reaches every flow, that nothing the
     follower executes lives in it, and that no flow file repeats setup it could link to instead.
 16. Check that the README links to this runbook rather than carrying a second copy of its steps.
-17. Confirm teardown covers what setup created, and refresh the verified-against line.
+17. Confirm teardown covers what setup created.
 18. Settle anything the steps above do not cover against the opening sentence: does the follower
     need this in order to operate the system, or is it there because the author knew it?

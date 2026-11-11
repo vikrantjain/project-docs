@@ -20,7 +20,7 @@ or is it the story of how it got there?
 
 2. **Not a record of gotchas, failures or issues** hit while writing the document or while
    writing, building or deploying the code. Those belong in the issue tracker, the runbook's
-   troubleshooting section, or the component's own repo. See the `runbook` skill, rule 21.
+   troubleshooting section, or the component's own repo. See the `runbook` skill, rule 19.
 
 3. **Not a history.** Git holds that. Describe only the current design: no "previously X,
    then we changed to Y", no revision log. A rejected alternative appears only as rationale
