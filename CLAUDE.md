@@ -29,12 +29,13 @@ moved. Then bump the version in `plugin.json`, because a citation held outside t
 grepped.
 
 Each pair of skills partitions one decision, and each boundary is stated on both sides of itself:
-what the reader executes goes to the runbook rather than the README, and what explains one block of
-code goes beside that code rather than into either document. A change to where one of those lines
-falls has to land in both files that state it, or they will contradict each other.
+what the reader executes goes to the runbook rather than the README, what explains the whole
+system goes to the architecture document rather than into any of the others, and what explains
+one block of code goes beside that code rather than into any document. A change to where one of
+those lines falls has to land in both files that state it, or they will contradict each other.
 
 ## Scope
 
-The plugin covers READMEs, runbooks and the comments in the source, and `README.md` says so. A
-fourth documentation type means a new skill directory, its own anchoring sentence, a decision about
-which existing skill it takes content from, and an edit to `README.md`.
+The plugin covers READMEs, runbooks, architecture documents and the comments in the source, and
+`README.md` says so. A fifth documentation type means a new skill directory, its own anchoring
+sentence, a decision about which existing skill it takes content from, and an edit to `README.md`.

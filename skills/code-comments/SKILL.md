@@ -57,8 +57,8 @@ the reader could not have read off it, or is it a fact about something else?
 7. **No system-level design.** A comment explains the code it sits on. How the parts fit
    together, why the system is divided this way, and which alternatives the design rejected
    belong in the architecture document, named in one line where a reader of this file would go
-   looking for it. See the `readme` skill, rule 6. A comment that would have to change when a
-   different file changes is in the wrong file.
+   looking for it. See the `readme` skill, rule 6, and the `architecture-doc` skill, rule 8. A
+   comment that would have to change when a different file changes is in the wrong file.
 
 8. **Every sentence earns its line.** The test is not the comment's length. It is whether
    deleting any one sentence costs the reader something they could not have read off the code. A

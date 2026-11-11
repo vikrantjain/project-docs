@@ -38,9 +38,9 @@ shape first.
 5. **Only what the follower must do.** No architecture, no rationale for the design, no
    narration of what was built or what went wrong while building it. Two things this rule
    cuts: a paragraph explaining how the component works, and a note saying a step was added
-   because of a bug last month. Link the architecture doc in one line instead. Where the
-   paragraph explains one block of code rather than the system, it belongs beside that code;
-   see the `code-comments` skill, rule 7.
+   because of a bug last month. Link the architecture doc in one line instead; see the
+   `architecture-doc` skill, rule 8. Where the paragraph explains one block of code rather than
+   the system, it belongs beside that code; see the `code-comments` skill, rule 7.
 
 6. **Not the development environment.** A runbook is for operating the system, not for preparing
    a machine to develop it. Installing a language toolchain, an IDE, editor settings or commit

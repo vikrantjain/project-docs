@@ -39,8 +39,9 @@ sit above rule 4's quickstart in the document itself.
 
 6. **Link the architecture, do not restate it.** One line pointing at the design document. A
    diagram belongs here only when the reader cannot place the project without it, and then it
-   is the smallest one that does the job. Rationale about one block of code belongs beside that
-   code rather than on the front page. See the `code-comments` skill.
+   is the smallest one that does the job. See the `architecture-doc` skill, rule 8. Rationale
+   about one block of code belongs beside that code rather than on the front page. See the
+   `code-comments` skill.
 
 7. **No history and no changelog.** Git holds one and `CHANGELOG.md` holds the other. No "now
    rewritten in", no migration notes, no record of what a past version did.

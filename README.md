@@ -1,16 +1,16 @@
 # project-docs
 
 A Claude Code plugin that packages authoring and review guidelines for the documentation a
-project ships with: READMEs, runbooks, and the comments in the source.
+project ships with: READMEs, runbooks, architecture documents, and the comments in the source.
 
-It is for people who want Claude held to a fixed standard on those three rather than to its
+It is for people who want Claude held to a fixed standard on those four rather than to its
 defaults. The drift it prevents is the usual one: procedures accumulating in READMEs, design
-rationale accumulating in runbooks, work logs accumulating in comments, and every one of them
-filling up with text nobody goes looking for.
+rationale accumulating in runbooks, work logs accumulating in comments and design documents, and
+every one of them filling up with text nobody goes looking for.
 
 ## What it does
 
-Three skills, loaded automatically when you ask Claude to create, update, or review the
+Four skills, loaded automatically when you ask Claude to create, update, or review the
 matching documentation:
 
 - **`readme`** — rules for what belongs in a README, what belongs elsewhere, and how far it goes
@@ -20,13 +20,18 @@ matching documentation:
 - **`code-comments`** — rules for what a comment, docstring or module header carries, and what
   git, a test or the architecture document carries instead. Anchored on a third test: code
   documentation says what the code cannot.
+- **`architecture-doc`** — rules for what an architecture, design or HLD document may contain,
+  what it sends to git, the runbook or a comment instead, and how its diagrams are drawn.
+  Anchored on a fourth test: it describes the system as designed, not the work that produced it.
 
 Each skill ends with a review checklist covering every one of its rules, so asking for a review
 applies the same standard that writing does.
 
-The three skills cross-reference each other, so procedural content is kept out of READMEs,
-design rationale is kept out of runbooks, and an explanation of one block of code lands beside
-that block rather than in either document.
+The four skills cross-reference each other, so procedural content is kept out of READMEs,
+design rationale is kept out of runbooks and lands in the architecture document, and an
+explanation of one block of code lands beside that block rather than in any of them. The
+project README is the entry point: the runbook and the architecture document are each one link
+away from it.
 
 ## Requirements
 
