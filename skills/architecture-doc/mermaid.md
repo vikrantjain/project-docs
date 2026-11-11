@@ -10,6 +10,14 @@ a project chooses it. A local preview needs an extension, and the Mermaid versio
 differs from the one GitHub runs. Rule 13 of the skill applies: render where the reader will
 read, which for a GitHub-hosted document means pushing to a branch and looking at it.
 
+## Rendering from a terminal
+
+Extract the fenced block to a `.mmd` file and run
+`npx -y @mermaid-js/mermaid-cli -i <file> -o <file>.svg`. A diagram that fails prints the parse
+error. This checks against the CLI's bundled Mermaid, not GitHub's, so a diagram that passes here
+can still fail on GitHub where the versions differ. Rule 13 still asks for a look at the pushed
+page.
+
 ## Which diagram carries which view
 
 Mermaid has no C4 that renders everywhere, so each architecture view maps to one of its stable

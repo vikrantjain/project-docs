@@ -27,6 +27,14 @@ coloured to match the C4 palette, so it sits alongside the C4 views: person and 
 `#08427B`, container `#438DD5`, component `#85BBF0`, external `#999999`, white text on the dark
 fills.
 
+## Rendering from a terminal
+
+Extract the fenced block to a `.puml` file and run `plantuml -tsvg <file>`, or
+`java -jar plantuml.jar -tsvg <file>` where only the jar is installed. A diagram that fails
+prints the line and the error. This checks against the local jar, so where the reader's preview
+is a server, the server's PlantUML version is the one that decides. Rule 13 still asks for a
+look at that preview before committing.
+
 ## Constructs known to fail
 
 The C4 bundled with PlantUML lags C4-PlantUML's master branch, so a macro documented online may
