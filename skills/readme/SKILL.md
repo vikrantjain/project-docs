@@ -31,7 +31,9 @@ sit above rule 4's quickstart in the document itself.
 
 4. **A quickstart earns its place only while it stays short.** Install and one command that
    proves the thing runs, with its expected output. Once it grows past what someone reads to
-   decide whether to care, move it to a runbook and leave a link.
+   decide whether to care, move it to a runbook and link it from here, since the front page is
+   where the reader looks for what was moved out. While the quickstart is still the whole
+   procedure, it is the runbook and there is nothing to link. See the `runbook` skill, rule 7.
 
 5. **Requirements before the quickstart.** Language and runtime versions, the services it needs
    running, the platforms it is known to work on. A reader who cannot meet them should find that
@@ -63,11 +65,6 @@ sit above rule 4's quickstart in the document itself.
 
 12. **Every link resolves and every command runs.** A broken link on the front page is the
     cheapest signal a reader has that the rest is stale.
-
-13. **Link the runbook.** Whatever the reader executes was moved out of here. The front page
-    is where they look for it, so a README that sends them nowhere leaves the procedure
-    unfindable. Where the quickstart is still the whole procedure, it is the runbook. Until the
-    procedure moves out, there is nothing to link. See the `runbook` skill, rule 7.
 
 ## Reviewing an existing README
 
