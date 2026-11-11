@@ -21,7 +21,8 @@ matching documentation:
   git, a test or the architecture document carries instead. Anchored on a third test: code
   documentation says what the code cannot.
 - **`architecture-doc`** — rules for what an architecture, design or HLD document may contain,
-  what it sends to git, the runbook or a comment instead, and how its diagrams are drawn.
+  what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in
+  whichever tool the project uses.
   Anchored on a fourth test: it describes the system as designed, not the work that produced it.
 
 Each skill ends with a review checklist covering every one of its rules, so asking for a review

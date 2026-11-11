@@ -16,6 +16,10 @@ another skill, or nowhere.
 A rule a reviewer could act on belongs in the review checklist that ends the file too. A rule with
 no way to detect its violation is unfinished.
 
+A rule that is true of one tool and not of another does not go in the rule list. It goes in a
+reference file beside the `SKILL.md`, named after the tool, which the skill tells the reader to
+open when the project uses that tool. `skills/architecture-doc/plantuml.md` is the pattern.
+
 Widen the frontmatter `description` when a change widens what the skill covers. The description is
 the only thing that loads the skill at the right moment, and a skill that fails to load fails
 silently.

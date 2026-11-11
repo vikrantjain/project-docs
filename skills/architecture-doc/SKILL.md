@@ -1,6 +1,6 @@
 ---
 name: architecture-doc
-description: Guidelines for writing and reviewing an architecture, design or HLD document — what it may contain, what it sends to git, the runbook or a comment instead, and how its diagrams are drawn. Use before creating, updating or reviewing such a document, before adding a diagram to one, and when design rationale found in a README, a runbook or a comment needs a home.
+description: Guidelines for writing and reviewing an architecture, design or HLD document — what it may contain, what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in whichever tool the project uses. Use before creating, updating or reviewing such a document, before adding a diagram to one in PlantUML, Mermaid or another tool, and when design rationale found in a README, a runbook or a comment needs a home.
 ---
 
 # Architecture documents
@@ -56,42 +56,27 @@ or is it the story of how it got there?
    re-reading of every box. Never convey the same idea twice in different forms. One
    interaction gets one diagram, not a sequence diagram and a flow diagram of the same thing.
 
-10. **Draw structure with PlantUML C4**, included from the bundled standard library in
-    exactly this form:
+10. **Draw in the project's tool, not the author's.** The project's `CLAUDE.md` names the
+    diagram tool, since a diagram in the wrong one renders as an empty space with no error.
+    Where it does not, use the tool the existing documents already use. Where there are no
+    diagrams yet, ask rather than default. Each tool has one reference file beside this skill,
+    `plantuml.md` or `mermaid.md`, holding what applies only to it. Read that file before
+    drawing. A tool with no file gets one before its first diagram, not a rule in this list.
 
-    ```
-    !include <C4/C4_Context>     <C4/C4_Container>  <C4/C4_Component>
-    !include <C4/C4_Dynamic>     <C4/C4_Deployment>
-    ```
+11. **Embed every diagram in the markdown** as a fenced block whose language is the tool's
+    name. No sibling diagram source files, no rendered PNG or SVG. One idea per diagram. A
+    diagram that needs a paragraph of caveats is really two diagrams.
 
-    **Never a URL, and never a bare filename**, so not `!include C4_Container.puml`. An
-    include resolves where the *renderer* runs, not where the markdown lives. A renderer
-    configured as a server (VS Code's `plantuml.render: PlantUMLServer`, the common setup)
-    looks a bare filename up on the server's own filesystem, finds nothing, and answers HTTP
-    400 for the whole diagram. The `<C4/…>` form ships inside PlantUML itself, so it resolves
-    in a local jar and in a server alike, offline, with no library path to configure.
+12. **Use only constructs the reader's renderer has.** Every renderer lags its tool's
+    documentation, so a construct documented online may not exist where the reader looks, and
+    one unknown construct fails the whole diagram rather than degrading. Prefer the oldest
+    construct that expresses the thing. The tool's reference file names the ones known to
+    fail.
 
-11. **Sequence, flow and activity diagrams are not part of C4.** Use a C4 dynamic diagram
-    (`<C4/C4_Dynamic>`) when the interaction is between elements the document has already
-    introduced. Otherwise write a plain PlantUML sequence or activity diagram coloured to
-    match the C4 palette, so it sits alongside the C4 views: person and system `#08427B`,
-    container `#438DD5`, component `#85BBF0`, external `#999999`, white text on the dark fills.
-
-12. **Embed every diagram in the markdown** as a fenced ```plantuml block. No sibling `.puml`
-    files, no rendered PNG or SVG. One idea per diagram. A diagram that needs a paragraph of
-    caveats is really two diagrams.
-
-13. **Use only macros the renderer actually has.** The C4 bundled with PlantUML lags
-    C4-PlantUML's master branch, so a macro documented online may simply not exist locally,
-    and a diagram that is valid against the docs then fails as a whole. `RelIndex` is one such
-    macro. A C4 dynamic diagram numbers plain `Rel()` calls by itself and needs nothing else.
-    Prefer the oldest macro that expresses the thing.
-
-14. **Render every diagram before committing it.** A bad include or an unknown macro fails
-    the entire diagram rather than degrading. A markdown preview shows an empty space rather
-    than an error anyone can read, so an unrendered diagram is an unverified one. Render
-    against the same renderer the reader's preview uses, because that is what decides which
-    macros exist.
+13. **Render every diagram before committing it.** A markdown preview shows an empty space
+    rather than an error anyone can read, so an unrendered diagram is an unverified one.
+    Render against the same renderer the reader's preview uses, because that is what decides
+    which constructs exist.
 
 ## Reviewing an existing architecture document
 
@@ -115,8 +100,10 @@ or is it the story of how it got there?
    section is.
 8. For each diagram, check that it carries one idea, that a two- or three-line summary sits
    under it, and that no other diagram or passage says the same thing.
-9. Check every `!include` is of the `<C4/…>` form, every non-C4 diagram uses the C4 palette,
-   and every diagram is a fenced `plantuml` block with no sibling file or rendered image.
+9. Check that every diagram is in the tool the project's `CLAUDE.md` or its other documents
+   name, as a fenced block in that tool's language, with no sibling file or rendered image.
+   Then check it against that tool's reference file beside this skill. A construct that file
+   names as failing is the finding.
 10. Render every diagram against the reader's renderer. One that fails to render is the
     finding, whatever the markdown preview shows.
 11. Settle anything the steps above do not cover against the opening sentence: is this the
