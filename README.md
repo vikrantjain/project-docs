@@ -19,7 +19,8 @@ matching documentation:
   sections it must carry. Anchored on the opposite test: a runbook is followed, not read.
 - **`code-comments`** — rules for what a comment, docstring or module header carries, and what
   git, a test or the architecture document carries instead. Anchored on a third test: code
-  documentation says what the code cannot.
+  documentation says what the code cannot. It also loads whenever Claude writes or changes code,
+  because the comments in that code are written along with it.
 - **`architecture-doc`** — rules for what an architecture, design or HLD document may contain,
   what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in
   whichever tool the project uses.
