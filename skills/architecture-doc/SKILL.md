@@ -1,6 +1,6 @@
 ---
 name: architecture-doc
-description: Guidelines for writing and reviewing an architecture, design or HLD document — what it may contain, what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in whichever tool the project uses. Use before creating, updating or reviewing such a document, before adding a diagram to one in PlantUML, Mermaid or another tool, and when design rationale found in a README, a runbook or a comment needs a home.
+description: Guidelines for writing and reviewing an architecture, design or HLD document — what it may contain, what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in whichever tool the project uses. Use before creating, updating or reviewing such a document, before adding a diagram to one in PlantUML, Mermaid or another tool, and when design rationale found in a README, a runbook or a comment needs a home. Also use before writing or reviewing a code change, diff or pull request that touches an architecture or design document, even when the task is about the code.
 ---
 
 # Architecture documents

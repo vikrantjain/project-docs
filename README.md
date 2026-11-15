@@ -11,7 +11,8 @@ every one of them filling up with text nobody goes looking for.
 ## What it does
 
 Four skills, loaded automatically when you ask Claude to create, update, or review the
-matching documentation:
+matching documentation. Each also loads when Claude writes or reviews a code change that touches
+that documentation:
 
 - **`readme`** — rules for what belongs in a README, what belongs elsewhere, and how far it goes
   before sending the reader on. Anchored on one test: a README is read, not followed.
@@ -19,8 +20,8 @@ matching documentation:
   sections it must carry. Anchored on the opposite test: a runbook is followed, not read.
 - **`code-comments`** — rules for what a comment, docstring or module header carries, and what
   git, a test or the architecture document carries instead. Anchored on a third test: code
-  documentation says what the code cannot. It also loads whenever Claude writes or changes code,
-  because the comments in that code are written along with it.
+  documentation says what the code cannot. It loads on every code change and every code
+  review, because nearly every change touches a comment.
 - **`architecture-doc`** — rules for what an architecture, design or HLD document may contain,
   what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in
   whichever tool the project uses.

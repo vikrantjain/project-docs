@@ -1,6 +1,6 @@
 ---
 name: code-comments
-description: Guidelines for writing and reviewing code documentation — the comments, docstrings and header comments that sit in the source: what belongs beside the code, what belongs in git, a test or the architecture document, and how much each comment may say. Use before writing or changing code in any language, including a feature, a fix, error handling or a refactor, even when the task never mentions comments. Comments are written as a by-product of that work, so the rules apply there too. Also use before writing, updating or reviewing comments, docstrings or API documentation, and on any request to document or explain a piece of code in place.
+description: Guidelines for writing and reviewing code documentation — the comments, docstrings and header comments that sit in the source: what belongs beside the code, what belongs in git, a test or the architecture document, and how much each comment may say. Use before writing or changing code in any language, including a feature, a fix, error handling or a refactor, even when the task never mentions comments. Comments are written as a by-product of that work, so the rules apply there too. Use before reviewing a code change, a diff or a pull request for the same reason. Also use before writing, updating or reviewing comments, docstrings or API documentation, and on any request to document or explain a piece of code in place.
 ---
 
 # Code documentation

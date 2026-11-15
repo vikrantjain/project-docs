@@ -1,6 +1,6 @@
 ---
 name: readme
-description: Guidelines for writing and reviewing a README — what belongs in it, what belongs somewhere else, how far it goes before the reader is sent elsewhere, and where it sends the reader next. Use before creating, updating or reviewing a README or a project's front-page documentation.
+description: Guidelines for writing and reviewing a README — what belongs in it, what belongs somewhere else, how far it goes before the reader is sent elsewhere, and where it sends the reader next. Use before creating, updating or reviewing a README or a project's front-page documentation. Also use before writing or reviewing a code change, diff or pull request that touches a README, even when the task is about the code.
 ---
 
 # READMEs
