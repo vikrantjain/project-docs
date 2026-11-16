@@ -43,9 +43,12 @@ Claude Code. No other tools, languages, or services.
 ## Install
 
 ```
-/plugin marketplace add vikrantjain/my-claude-plugins
-/plugin install project-docs@my-claude-plugins
+/plugin marketplace add vikrantjain/project-docs
+/plugin install project-docs@project-docs
 ```
+
+The repo is its own plugin marketplace, so nothing else needs to be set up. In
+`project-docs@project-docs`, the first name is the plugin and the second is the marketplace.
 
 To confirm it is working, ask for a review in any project:
 
