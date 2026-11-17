@@ -46,8 +46,11 @@ the reader could not have read off it, or is it a fact about something else?
 5. **No results of execution.** A comment carries no sample output, no timing, no count, no
    captured error text. Each of those describes one run of one version in one environment, and a
    later reader cannot tell whether it still holds. Output that the code guarantees belongs in a
-   test, which fails when it stops being true. Output a follower needs in order to operate the
-   system belongs in a runbook step; see the `runbook` skill, rule 4.
+   test, which fails when it stops being true. An example the project's test command runs is
+   such a test, so it stays. A Python doctest that the test run collects is one, and so is a
+   Rust doc example in a library, which `cargo test` runs. An example the test command never
+   runs is sample output like any other. Output a follower needs in order to operate the system
+   belongs in a runbook step; see the `runbook` skill, rule 4.
 
 6. **Nothing parked for later.** Commented-out code and an unowned TODO are the same thing: text
    kept in the file because nobody decided. Git holds what was removed and can say when it went.
@@ -89,7 +92,8 @@ the reader could not have read off it, or is it a fact about something else?
    nowhere else, it is not cut until it has been written down.
 5. Cut every result of a run: sample output, timings, counts, captured error text. Where that
    output is what the code guarantees, the finding is a missing test rather than a surplus
-   comment.
+   comment. An example in a comment stays when the project's test command runs it. Check that
+   it does, because a doctest the test run never collects is sample output like any other.
 6. Cut commented-out code, and every TODO naming neither an owner nor a tracking item.
 7. Cut comments whose subject is the system rather than the code they sit on. Anything that would
    have to change when a different file changes is in the wrong file: relocate it to the
