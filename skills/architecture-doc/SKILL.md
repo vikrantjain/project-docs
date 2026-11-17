@@ -44,11 +44,14 @@ or is it the story of how it got there?
    validation". `we will`, `we did`, `next`, and `as of <date>` are the tells that the
    document has slipped into log mode.
 
-7. **Explain, don't just present.** Use plain language, but plain does not mean long. Lead
-   with the flow, then say why it is a problem, then give the solution. Never put a flow and
-   its solution side by side and leave the reader to work out what was wrong. Padding,
-   restatement and hedging make a document boring long before they make it clear. Keep a
-   metaphor only once it is this document set's own vocabulary.
+7. **Explain, don't just present.** Where a part of the design exists to handle a problem,
+   name the problem before the mechanism that handles it. State it as a problem the system
+   faces now: "two workers can claim the same job", not "jobs were being run twice". Never put
+   a problem and its mechanism side by side and leave the reader to work out the link. A flow
+   that answers no problem is described as it runs, with no problem invented for it. State
+   what the system does, not how sure the author is of it. A hedge leaves the reader unable to
+   tell what the design is. Keep a metaphor only once it is this document set's own
+   vocabulary. Until then it describes something other than the system.
 
 8. **The subject is the whole system.** How the parts fit together, why the system is divided
    this way, and the alternatives the division rejected belong here and nowhere else. Three
@@ -100,8 +103,11 @@ or is it the story of how it got there?
    tracker. Relocate each only if it exists nowhere else.
 4. Check each sentence for past or future tense about the project's own work. `we will`,
    `we did`, `next` and `as of` are the finding.
-5. For each flow, check that the reader is told what was wrong before being shown the
-   solution, rather than left to work it out from two things placed side by side.
+5. For each mechanism that exists to handle a problem, check that the problem is named before
+   it, as one the system faces now. A problem told as something the project once had is the
+   finding. So is a mechanism whose purpose the reader must work out from two things placed
+   side by side. Then find every hedge about what the system does, and every metaphor the
+   document set does not already use as a name. Each one is the finding.
 6. Cut anything the reader executes, and relocate it to the runbook. Cut the rationale for one
    block of code, and relocate it to a comment beside that block. Cut a table of settings, and
    relocate it to the configuration reference, or to the README where the project has none.
