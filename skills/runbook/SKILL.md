@@ -68,14 +68,20 @@ shape first.
    destructive. A runbook where every step carries a paragraph stops being followable.
 
 9. **One block per path, pasted whole.** A command block is copy-pastable as it stands: no prose
-   interleaved, no line the reader must edit or uncomment mid-paste. Two ways to run a step are
-   two blocks, each under a heading saying when to use it. An optional-flag variant is a second
-   block too. Where a step cannot be a command (a click path, a console field), name the exact
-   screen, the exact control and the exact value.
+   interleaved, no line the reader must edit or uncomment mid-paste. The one block the follower
+   edits is the one in the prerequisites that sets the placeholders; see rule 10. Two ways to
+   run a step are two blocks, each under a heading saying when to use it. An optional-flag
+   variant is a second block too. Where a step cannot be a command (a click path, a console
+   field), name the exact screen, the exact control and the exact value.
 
-10. **One placeholder convention, fixed across the runbook.** Write every placeholder
-    `<PROJECT_ID>`. Every placeholder the follower supplies appears in the prerequisites under
-    the same name it carries in the block.
+10. **One placeholder convention, fixed across the runbook.** A placeholder is a variable the
+    follower sets once, and every block after that reads it unchanged. In a shell it is an
+    environment variable. The prerequisites end with one block of `export PROJECT_ID=` lines for
+    the follower to complete, and later blocks write `"$PROJECT_ID"`. A block that writes
+    `<PROJECT_ID>` instead must be edited before every paste, which rule 9 forbids. In a POSIX
+    shell, `<` and `>` are redirections, so that block pasted unedited fails. Every placeholder
+    the follower supplies appears in the prerequisites under the same name it carries in the
+    block. A flow the follower may start in a new shell links the block that sets them.
 
 11. **Reference a script that already exists; never reproduce it.** Where the repository or the
     machine already carries the script, the step gives its path, the command that invokes it,
@@ -88,9 +94,10 @@ shape first.
 
 13. **Never carry state in the reader's head.** A step that produces a value the follower needs
     later gives that value a name in the placeholder convention, and the later step refers to it
-    by that name. A produced value is the one placeholder that does not belong in the
-    prerequisites. The follower cannot supply it before the run, so it is introduced at the step
-    that produces it.
+    by that name. Where the step is a command, its block assigns the value to that variable
+    itself, so the follower never copies it by hand. A produced value is the one placeholder
+    that does not belong in the prerequisites. The follower cannot supply it before the run, so
+    it is introduced at the step that produces it.
 
 14. **The top level is the list of flows the follower might come to run.** A follower arrives
     with a goal: restore a backup into a fresh environment, or rotate a signing key. Each goal
@@ -161,14 +168,17 @@ shape first.
    could not execute from what is written above it. That step is the finding.
 5. Check each command block for a placeholder that is neither in the prerequisites nor produced
    by an earlier step, for prose interleaved between its lines, and for any line the reader must
-   edit or uncomment before pasting. Check that every placeholder is written in one convention
-   throughout. Where a step is not a command, check that it names the exact screen, the exact
-   control and the exact value.
+   edit or uncomment before pasting. A placeholder the follower replaces by hand, such as
+   `<PROJECT_ID>`, is such a line. The block in the prerequisites that sets the variables is the
+   one exception. Check that every placeholder is written in one convention throughout. Where
+   a step is not a command, check that it names the exact screen, the exact control and the
+   exact value.
 6. Check that two ways to reach one end state are two blocks or two paths, each under a heading
    saying when to use it, and that neither is braided back into the other by a conditional aside.
 7. Check each step for a result the reader cannot verify, and for a wait long enough to look
    stuck that does not say how long it takes. Check that each value a step produces has a name,
-   and that the later step refers to it by that name.
+   and that the later step refers to it by that name. Where the step is a command, check that
+   its block assigns the value to that name, rather than leaving the follower to copy it.
 8. Read each step's line with its command hidden. A line naming only the mechanism, from which
    you cannot say what the follower gets, is the finding. So is a grouping heading inside a flow
    that names machinery. Then check each step is one line: a step carrying a paragraph where
