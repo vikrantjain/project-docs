@@ -1,6 +1,6 @@
 ---
 name: code-comments
-description: Guidelines for writing and reviewing code documentation — the comments, docstrings and header comments that sit in the source: what belongs beside the code, what belongs in git, a test or the architecture document, and how much each comment may say. Use before writing, changing or reviewing code in any language, even when the task never mentions comments: a feature, a fix, error handling, a refactor, a diff or a pull request. Also use on any request to document or explain a piece of code in place, or to write or review docstrings or API documentation.
+description: Guidelines for writing and reviewing code documentation — the comments, docstrings and header comments that sit in the source: what belongs beside the code, what belongs in a commit message, a test or the architecture document, and how much each comment may say. Use before writing, changing or reviewing code in any language, even when the task never mentions comments: a feature, a fix, error handling, a refactor, a diff or a pull request. Also use on any request to document or explain a piece of code in place, or to write or review docstrings or API documentation.
 ---
 
 # Code documentation
@@ -35,9 +35,9 @@ the reader could not have read off it, or is it a fact about something else?
 3. **Record the constraint, never the deliberation.** What survives a design discussion is the
    rule the next editor has to keep: retry only on a duplicate-key conflict, because any other
    failure may mean the write already landed. What does not survive is the account of reaching
-   it. What was tried, what was reverted, who argued for which option and when all belong to git,
-   which can date them. See the `readme` skill, rule 7, which keeps the same material off the
-   front page.
+   it. What was tried, what was reverted, who argued for which option and when all belong in the
+   commit message, which carries their date. See the `commit-message` skill, rule 4, and the
+   `readme` skill, rule 7, which keeps the same material off the front page.
 
 4. **Never narrate the logic.** A comment that restates the line beneath it, or spells out the
    name of the thing it sits on, carries nothing. Delete it and read the code again: if nothing
@@ -50,8 +50,9 @@ the reader could not have read off it, or is it a fact about something else?
    system belongs in a runbook step; see the `runbook` skill, rule 4.
 
 6. **Nothing parked for later.** Commented-out code and an unowned TODO are the same thing: text
-   kept in the file because nobody decided. Git holds what was removed and can say when it went,
-   and the tracker holds work not yet done. A TODO stays only when it names an owner and the item
+   kept in the file because nobody decided. Git holds what was removed and can say when it went.
+   The message of the commit that removed it says why; see the `commit-message` skill, rule 2.
+   The tracker holds work not yet done. A TODO stays only when it names an owner and the item
    that tracks it.
 
 7. **No system-level design.** A comment explains the code it sits on. How the parts fit

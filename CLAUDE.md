@@ -35,13 +35,15 @@ grepped.
 Each pair of skills partitions one decision, and each boundary is stated on both sides of itself:
 what the reader executes goes to the runbook rather than the README, what the operator looks up
 goes to the configuration reference rather than the runbook or the README, what explains the whole
-system goes to the architecture document rather than into any of the others, and what explains one
-block of code goes beside that code rather than into any document. A change to where one of those
+system goes to the architecture document rather than into any of the others, what explains one
+block of code goes beside that code rather than into any document, and what explains why the code
+changed goes to the commit message rather than into any document or comment. A change to where one of those
 lines falls has to land in both files that state it, or they will contradict each other.
 
 ## Scope
 
-The plugin covers READMEs, runbooks, configuration references, architecture documents and the
-comments in the source, and `README.md` says so. A sixth documentation type means a new skill
+The plugin covers READMEs, runbooks, configuration references, architecture documents, the
+comments in the source and commit messages. `README.md` says so, and so does the `description` in
+both `plugin.json` and `marketplace.json`. A seventh documentation type means a new skill
 directory, its own anchoring sentence, a decision about which existing skill it takes content from,
-and an edit to `README.md`.
+and an edit to all three of those.

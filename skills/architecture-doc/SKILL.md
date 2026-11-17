@@ -1,6 +1,6 @@
 ---
 name: architecture-doc
-description: Guidelines for writing and reviewing an architecture, design or HLD document — what it may contain, what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in whichever tool the project uses. Use before creating, updating or reviewing such a document, before adding a diagram to one in PlantUML, Mermaid or another tool, and when design rationale found in a README, a runbook or a comment needs a home. Also use before writing or reviewing a code change, diff or pull request that touches an architecture or design document, even when the task is about the code.
+description: Guidelines for writing and reviewing an architecture, design or HLD document — what it may contain, what it sends to a commit message, the runbook or a comment instead, and how its diagrams are drawn in whichever tool the project uses. Use before creating, updating or reviewing such a document, before adding a diagram to one in PlantUML, Mermaid or another tool, and when design rationale found in a README, a runbook or a comment needs a home. Also use before writing or reviewing a code change, diff or pull request that touches an architecture or design document, even when the task is about the code.
 ---
 
 # Architecture documents
@@ -22,10 +22,12 @@ or is it the story of how it got there?
    writing, building or deploying the code. Those belong in the issue tracker, the runbook's
    troubleshooting section, or the component's own repo. See the `runbook` skill, rule 19.
 
-3. **Not a history.** Git holds that. Describe only the current design: no "previously X,
-   then we changed to Y", no revision log. A rejected alternative appears only as rationale
-   inside a decision, never as chronology. The `readme` skill, rule 7, and the `code-comments`
-   skill, rule 3, keep the same material off the front page and out of the source.
+3. **Not a history.** Git holds that, and the message of each commit that changed the design
+   says why it changed. See the `commit-message` skill, rules 4 and 7. Describe only the current
+   design: no "previously X, then we changed to Y", no revision log. A rejected alternative
+   appears only as rationale inside a decision, never as chronology. The `readme` skill, rule 7,
+   and the `code-comments` skill, rule 3, keep the same material off the front page and out of
+   the source.
 
 4. **No dates and no implementation plan.** No planned dates, no release dates, no project
    plan.

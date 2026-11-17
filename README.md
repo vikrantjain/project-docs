@@ -1,17 +1,17 @@
 # project-docs
 
 A Claude Code plugin that packages authoring and review guidelines for the documentation a
-project ships with: READMEs, runbooks, configuration references, architecture documents, and the
-comments in the source.
+project ships with: READMEs, runbooks, configuration references, architecture documents, the
+comments in the source, and commit messages.
 
-It is for people who want Claude held to a fixed standard on those five rather than to its
+It is for people who want Claude held to a fixed standard on those six rather than to its
 defaults. The drift it prevents is the usual one: procedures accumulating in READMEs, design
 rationale accumulating in runbooks, work logs accumulating in comments and design documents, and
 every one of them filling up with text nobody goes looking for.
 
 ## What it does
 
-Five skills, loaded automatically when you ask Claude to create, update, or review the
+Six skills, loaded automatically when you ask Claude to create, update, or review the
 matching documentation. Each also loads when Claude writes or reviews a code change that touches
 that documentation:
 
@@ -30,14 +30,19 @@ that documentation:
   what it sends to git, the runbook or a comment instead, and how its diagrams are drawn in
   whichever tool the project uses.
   Anchored on a fifth test: it describes the system as designed, not the work that produced it.
+- **`commit-message`** — rules for what a commit's subject and body say, and for the history
+  and deliberation it records that the other five send away. It loads on every commit and every
+  review of a branch or pull request. Anchored on a sixth test: a commit message explains the
+  change, not the code.
 
 Each skill ends with a review checklist covering every one of its rules, so asking for a review
 applies the same standard that writing does.
 
-The five skills cross-reference each other, so procedural content is kept out of READMEs,
+The six skills cross-reference each other, so procedural content is kept out of READMEs,
 design rationale is kept out of runbooks and lands in the architecture document, a table of
 settings lands in the configuration reference rather than in a runbook, and an explanation of one
-block of code lands beside that block rather than in any of them. The project README is the
+block of code lands beside that block rather than in any of them. The account of how the work
+got there lands in the commit message, the one record that carries its date. The project README is the
 entry point: the runbook, the configuration reference and the architecture document are each one
 link away from it.
 
