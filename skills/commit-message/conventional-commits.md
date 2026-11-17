@@ -20,7 +20,9 @@ the release notes.
 The description after the colon is still imperative, as rule 1 asks. The common commitlint
 configuration rejects a description that starts with a capital letter, so it starts in lower
 case. The length limit applies to the whole subject, prefix included. Use the
-`header-max-length` the project configures, or 72 characters without one.
+`header-max-length` the project's commitlint configuration sets. A configuration that extends
+`@commitlint/config-conventional` inherits 100 from it, so the project's own file may not state
+a limit at all. Without any commitlint configuration, use 72 characters.
 
 ## Breaking changes
 
