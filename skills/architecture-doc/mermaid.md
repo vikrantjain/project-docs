@@ -63,8 +63,10 @@ classDef external fill:#999999,color:#fff
 
 - A node id of `end` in lowercase breaks a `flowchart`, because it is the keyword that closes a
   `subgraph`. Capitalise it or choose another id.
-- A node label containing `(`, `[`, `{` or `"` must be quoted: `A["read(path)"]`. Unquoted, the
+- A node label containing `(`, `[` or `{` must be quoted: `A["read(path)"]`. Unquoted, the
   bracket is parsed as a shape and the diagram fails.
+- A `"` inside a quoted label ends the label early, so quoting cannot hold it. Write it as the
+  entity code `#quot;`: `A["the #quot;id#quot; field"]`.
 
 Add a construct here the first time it fails on the reader's renderer, with the renderer it
 failed on.
