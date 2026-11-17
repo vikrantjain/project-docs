@@ -9,8 +9,9 @@ convention only. The rules in the skill hold as well.
 
 The subject is `type(scope): description`. The scope is optional, and a `!` before the colon
 marks a breaking change. The type is one of those the project's commitlint configuration allows.
-Without a configuration, use the common set: `feat`, `fix`, `docs`, `refactor`, `perf`, `test`,
-`build`, `ci`, `chore`, `style` and `revert`.
+Without a configuration, use the types the project's recent commits use. Where those are too few
+to tell, use the common set: `feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `build`, `ci`,
+`chore`, `style` and `revert`.
 
 The type is read by tools, not only by people. A release tool usually turns `feat` into a minor
 version and `fix` into a patch. Choosing `chore` for a change users will notice leaves it out of

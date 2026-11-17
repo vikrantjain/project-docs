@@ -65,7 +65,8 @@ or is it the story of how it got there?
     Where it does not, use the tool the existing documents already use. Where there are no
     diagrams yet, ask rather than default. Each tool has one reference file beside this skill,
     `plantuml.md` or `mermaid.md`, holding what applies only to it. Read that file before
-    drawing. A tool with no file gets one before its first diagram, not a rule in this list.
+    drawing. A tool with no file here is drawn from its own documentation, and rule 13's render
+    is the check.
 
 11. **Embed every diagram in the markdown** as a fenced block whose language is the tool's
     name. No sibling diagram source files, no rendered PNG or SVG. One idea per diagram. A
