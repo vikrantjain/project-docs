@@ -7,8 +7,10 @@ description: Guidelines for writing and reviewing an architecture, design or HLD
 
 An architecture document **describes the system as designed, not the work that produced it**.
 It reads the same whether it was written on the project's first day or its last. Every rule
-below serves that one sentence. The diagram rules serve it too: a diagram that does not render
-describes nothing.
+below serves that one sentence. The diagram rules serve it too. A diagram that does not render
+describes nothing. A second copy of an idea, whether a rendered image, a source file beside the
+document or a second diagram, goes on showing the design as it was when the copy was made. A
+diagram that needs caveats shows a system other than the one designed.
 
 When a case here isn't covered, decide it from that sentence: is this the design as it stands,
 or is it the story of how it got there?
@@ -62,10 +64,9 @@ or is it the story of how it got there?
    README names this document in one line rather than restating it; see the `readme` skill,
    rule 6.
 
-9. **Prefer a diagram to a long passage** where it carries the same thing faster. Put a
-   short summary under each one: two or three lines saying what to take from it, not a
-   re-reading of every box. Never convey the same idea twice in different forms. One
-   interaction gets one diagram, not a sequence diagram and a flow diagram of the same thing.
+9. **Never convey the same idea twice in different forms.** One interaction gets one diagram,
+   not a sequence diagram and a flow diagram of the same thing. A passage that restates a
+   diagram box by box is a second copy too.
 
 10. **Draw in the project's tool, not the author's.** Use the diagram tool the project's
     `CLAUDE.md` names, since a diagram in the wrong one renders as an empty space with no error.
@@ -116,8 +117,8 @@ or is it the story of how it got there?
    what the division rejected. An absent one of those is a finding as much as a surplus
    section is. Where the review covers a change to how the system is divided, a document that
    the same commit left unchanged is the finding.
-8. For each diagram, check that it carries one idea, that a two- or three-line summary sits
-   under it, and that no other diagram or passage says the same thing.
+8. For each diagram, check that it carries one idea and needs no paragraph of caveats. Check
+   that no other diagram or passage says the same thing.
 9. Check that every diagram is in the tool the project's `CLAUDE.md` or its other documents
    name, as a fenced block in that tool's language, with no sibling file or rendered image.
    Then check it against that tool's reference file beside this skill. A construct that file
