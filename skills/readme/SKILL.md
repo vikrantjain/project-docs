@@ -48,7 +48,8 @@ sit above rule 4's quickstart in the document itself.
    `code-comments` skill.
 
 7. **No history and no changelog.** Git holds one and `CHANGELOG.md` holds the other. The
-   message of each commit says why that change was made; see the `commit-message` skill, rule 4.
+   message of each commit says why that change was made, and what was tried on the way; see the
+   `commit-message` skill, rules 2 and 4.
    No "now rewritten in", no migration notes, no record of what a past version did.
 
 8. **No status theatre.** No roadmap, no progress bars, no "coming soon" lists, no badge wall.

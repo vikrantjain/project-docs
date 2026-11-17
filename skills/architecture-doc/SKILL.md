@@ -67,13 +67,13 @@ or is it the story of how it got there?
    re-reading of every box. Never convey the same idea twice in different forms. One
    interaction gets one diagram, not a sequence diagram and a flow diagram of the same thing.
 
-10. **Draw in the project's tool, not the author's.** The project's `CLAUDE.md` names the
-    diagram tool, since a diagram in the wrong one renders as an empty space with no error.
-    Where it does not, use the tool the existing documents already use. Where there are no
-    diagrams yet, ask rather than default. Each tool has one reference file beside this skill,
-    `plantuml.md` or `mermaid.md`, holding what applies only to it. Read that file before
-    drawing. A tool with no file here is drawn from its own documentation, and rule 13's render
-    is the check.
+10. **Draw in the project's tool, not the author's.** Use the diagram tool the project's
+    `CLAUDE.md` names, since a diagram in the wrong one renders as an empty space with no error.
+    Where it names none, use the tool the existing documents already use. Where there are no
+    diagrams yet, ask rather than default. PlantUML and Mermaid each have a reference file
+    beside this skill, `plantuml.md` and `mermaid.md`, holding what applies only to that tool.
+    Read the one for the project's tool before drawing. A tool with no file here is drawn from
+    its own documentation, and rule 13's render is the check.
 
 11. **Embed every diagram in the markdown** as a fenced block whose language is the tool's
     name. No sibling diagram source files, no rendered PNG or SVG. One idea per diagram. A
