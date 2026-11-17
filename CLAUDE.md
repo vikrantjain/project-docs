@@ -10,7 +10,9 @@ locally and ask Claude to write or review the matching documentation.
 
 Every rule in a `SKILL.md` must be derivable from that file's anchoring sentence, the bold sentence
 directly under the title. A rule that is good advice but does not follow from the anchor belongs in
-another skill, or nowhere.
+another skill, or nowhere. One kind of rule is exempt: a rule limiting what the reader may create
+or restructure without the owner's agreement, such as proposing a file rather than creating it. It
+follows from the reader being an agent in someone else's project, not from any one anchor.
 
 A rule a reviewer could act on belongs in the review checklist that ends the file too. A rule with
 no way to detect its violation is unfinished.
