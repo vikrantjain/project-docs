@@ -56,7 +56,7 @@ shows the error and the line it is on. The SVG names the server's PlantUML versi
 Where the preview uses no server, run `plantuml -tsvg diagram.puml`, or
 `java -jar plantuml.jar -tsvg diagram.puml` where only the jar is installed. A diagram that
 fails prints the line and the error. This checks against the local jar's version only, and
-the preview's may differ. Rule 13 still asks for a look at that preview before committing.
+the preview's may differ. Rule 13 still asks for a look at that preview.
 
 ## Constructs known to fail
 

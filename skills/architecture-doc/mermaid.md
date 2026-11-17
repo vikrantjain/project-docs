@@ -8,15 +8,16 @@ still apply; this file holds only what is true of Mermaid and of nothing else.
 GitHub renders a fenced `mermaid` block in markdown without any setup, which is the usual reason
 a project chooses it. A local preview needs an extension, and the Mermaid version it bundles
 differs from the one GitHub runs. Rule 13 of the skill applies: render where the reader will
-read, which for a GitHub-hosted document means pushing to a branch and looking at it.
+read. For a GitHub-hosted document, push the change to a branch other than the default one, and
+look at the file on that branch before the change merges.
 
 ## Rendering from a terminal
 
 Extract the fenced block to a `.mmd` file and run
 `npx -y @mermaid-js/mermaid-cli -i <file> -o <file>.svg`. A diagram that fails prints the parse
 error. This checks against the CLI's bundled Mermaid, not GitHub's, so a diagram that passes here
-can still fail on GitHub where the versions differ. Rule 13 still asks for a look at the pushed
-page.
+can still fail on GitHub where the versions differ. Rule 13 still asks for a look at the file
+on the pushed branch.
 
 ## Which diagram carries which view
 

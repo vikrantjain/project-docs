@@ -78,7 +78,7 @@ or is it the story of how it got there?
     construct that expresses the thing. The tool's reference file names the ones known to
     fail.
 
-13. **Render every diagram before committing it.** A markdown preview shows an empty space
+13. **Render every diagram before it reaches the reader.** A markdown preview shows an empty space
     rather than an error anyone can read, so an unrendered diagram is an unverified one.
     Render against the same renderer the reader's preview uses, because that is what decides
     which constructs exist.
