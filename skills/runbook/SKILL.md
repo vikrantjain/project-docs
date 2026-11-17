@@ -81,10 +81,10 @@ shape first.
     follower sets once, and every block after that reads it unchanged. In a shell it is an
     environment variable. The prerequisites end with one block of `export PROJECT_ID=` lines for
     the follower to complete, and later blocks write `"$PROJECT_ID"`. A block that writes
-    `<PROJECT_ID>` instead must be edited before every paste, which rule 9 forbids. In a POSIX
-    shell, `<` and `>` are redirections, so that block pasted unedited fails. Every placeholder
-    the follower supplies appears in the prerequisites under the same name it carries in the
-    block. A flow the follower may start in a new shell links the block that sets them.
+    `<PROJECT_ID>` instead must be edited before every paste, which rule 9 forbids. Every
+    placeholder the follower supplies appears in the prerequisites under the same name it
+    carries in the block. A flow the follower may start in a new shell links the block that
+    sets them.
 
 11. **Reference a script that already exists; never reproduce it.** Where the repository or the
     machine already carries the script, the step gives its path, the command that invokes it,
@@ -146,10 +146,9 @@ shape first.
     guessing which file to open.
 
 19. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
-    the runbook is long. Each entry is a symptom the follower can observe, then the fix. A
-    problem met while building or deploying the system belongs here only in that form, and only
-    while a follower can still meet it. The architecture document sends such problems here; see
-    the `architecture-doc` skill, rule 2.
+    the runbook is long. Each entry is a symptom the follower can observe, then the fix. Rule 5
+    and the `architecture-doc` skill, rule 2, send here the problems a follower can still meet,
+    in that form.
 
 20. **End with teardown.** Everything the runbook created, removed in an order that works,
     including anything created only on the failure paths.
@@ -196,9 +195,8 @@ shape first.
     scope rule. It is not relocated unless it exists nowhere else. Its destination is the
     architecture document, or, where it explains one block of code, a comment beside that code.
     A table of settings moves to the configuration reference, or to the README where the
-    project has none, and the prerequisites link it. A note on why a step was added is cut.
-    Its reason belongs in the commit message, and a problem a follower can still meet becomes
-    a troubleshooting entry.
+    project has none, and the prerequisites link it. A note on why a step was added is cut, and
+    rule 5 says where its parts go.
 11. Cut developer environment setup, and cut any block that reproduces a script the project
     already ships. Replace the reproduced block with the path and the invocation.
 12. Check that setup every flow needs sits in one section ahead of the flows, that it starts from

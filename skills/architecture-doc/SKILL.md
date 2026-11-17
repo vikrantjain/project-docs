@@ -48,8 +48,7 @@ or is it the story of how it got there?
 
 7. **Explain, don't just present.** Where a part of the design exists to handle a problem,
    name the problem before the mechanism that handles it. State it as a problem the system
-   faces now: "two workers can claim the same job", not "jobs were being run twice". Never put
-   a problem and its mechanism side by side and leave the reader to work out the link. A flow
+   faces now: "two workers can claim the same job", not "jobs were being run twice". A flow
    that answers no problem is described as it runs, with no problem invented for it. State
    what the system does, not how sure the author is of it. A hedge leaves the reader unable to
    tell what the design is. Keep a metaphor only once it is this document set's own

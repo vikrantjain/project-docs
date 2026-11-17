@@ -29,8 +29,6 @@ one name or one message find its row, and can they trust what the row says?
    table drifts from the system with every change to the code. A generated table says how to
    regenerate it, and the rules below then apply to the source it is generated from. Where that
    source is a comment or a docstring, these rules govern it, not the `code-comments` skill's.
-   Its reader is the operator, so it gives the message the system prints word for word, as
-   rule 4 asks.
 
 3. **Each row gives the name, what the setting does, its default and whether it must be set.**
    Write the name exactly as the operator types it. Say what happens when the setting is unset
@@ -51,9 +49,8 @@ one name or one message find its row, and can they trust what the row says?
 6. **Separate the settings the system owns from those it only passes on.** A base image, a
    framework and a runtime each read settings of their own. Those go in a table of their own,
    which names whose they are. It holds only the ones the project sets, changes the default of,
-   or expects the operator to set, and it says it is not complete. A framework can read
-   thousands of settings, and a row for each could not be checked against the system. Their
-   names and defaults follow that component's version, not the project's. Where the project
+   or expects the operator to set, and it says it is not complete. Their names and defaults
+   follow that component's version, not the project's. Where the project
    promises not to rename its settings, say which table the promise covers.
 
 7. **Say what else can set the same value, and which source wins.** A configuration file, a
