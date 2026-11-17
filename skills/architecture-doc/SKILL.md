@@ -33,12 +33,12 @@ or is it the story of how it got there?
    decision, never as chronology. The `readme` skill, rule 7, and the `code-comments` skill,
    rule 3, keep the same material off the front page and out of the source.
 
-4. **No dates and no implementation plan.** No planned dates, no release dates, no project
-   plan.
+4. **No dates.** No planned dates and no release dates. A date ties a sentence to the day it
+   was written, and the document reads the same on any day of the project.
 
-5. **No timelines, estimates, milestones, phases, sprints or work breakdown.** A design is a
-   proposal; a schedule is a commitment. They are reviewed on different terms and belong in
-   different documents.
+5. **No plan for the work.** No implementation plan, project plan, timeline, estimate,
+   milestone, phase, sprint or work breakdown. A design describes the system. A schedule is a
+   commitment about the work, reviewed on different terms in a different document.
 
 6. **Write in the present tense.** "The gateway validates the token", not "we added token
    validation". `we will`, `we did`, `next`, and `as of <date>` are the tells that the
