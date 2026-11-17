@@ -58,7 +58,7 @@ does it describe the code as it now is?
    beside the code it constrains; see the `code-comments` skill, rule 3. Where the project has
    an architecture document, a change to how the system is divided updates it in the same
    commit. The message then says why the design changed; see the `architecture-doc` skill,
-   rule 8.
+   rule 3.
 
 8. **The message accounts for the whole diff.** `git blame` sends a reader here from any line
    the commit touched, so the message gives the reason for every part of it. Changes that serve

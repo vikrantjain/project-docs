@@ -23,11 +23,12 @@ or is it the story of how it got there?
    troubleshooting section, or the component's own repo. See the `runbook` skill, rule 19.
 
 3. **Not a history.** Git holds that, and the message of each commit that changed the design
-   says why it changed. See the `commit-message` skill, rules 4 and 7. Describe only the current
-   design: no "previously X, then we changed to Y", no revision log. A rejected alternative
-   appears only as rationale inside a decision, never as chronology. The `readme` skill, rule 7,
-   and the `code-comments` skill, rule 3, keep the same material off the front page and out of
-   the source.
+   says why it changed. See the `commit-message` skill, rules 4 and 7. The commit that changes
+   how the system is divided updates this document too, so the document never describes a
+   design the code has left. Describe only the current design: no "previously X, then we
+   changed to Y", no revision log. A rejected alternative appears only as rationale inside a
+   decision, never as chronology. The `readme` skill, rule 7, and the `code-comments` skill,
+   rule 3, keep the same material off the front page and out of the source.
 
 4. **No dates and no implementation plan.** No planned dates, no release dates, no project
    plan.
@@ -103,7 +104,8 @@ or is it the story of how it got there?
    None of them is cut until it exists at its destination.
 7. Name what is missing: how the parts fit together, why the system is divided this way, and
    what the division rejected. An absent one of those is a finding as much as a surplus
-   section is.
+   section is. Where the review covers a change to how the system is divided, a document that
+   the same commit left unchanged is the finding.
 8. For each diagram, check that it carries one idea, that a two- or three-line summary sits
    under it, and that no other diagram or passage says the same thing.
 9. Check that every diagram is in the tool the project's `CLAUDE.md` or its other documents
