@@ -19,7 +19,8 @@ A rule that is true of one tool and not of another does not go in the rule list.
 reference file beside the `SKILL.md`, named after the tool, which the skill tells the reader to
 open when the project uses that tool. `skills/architecture-doc/plantuml.md` is the pattern.
 
-A skill's reader is an agent working in another project. The plugin is installed in a cache the
+A skill's reader is an agent working in another project. That reader never sees this file, so a
+skill must not depend on anything only this file states. The plugin is installed in a cache the
 next update overwrites, so no rule tells that reader to add a reference file or change the skill.
 Adding one is a change to this repo. An example drawn from this repo's own vocabulary reads as
 specific to this repo, so examples come from an ordinary codebase.
