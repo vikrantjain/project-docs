@@ -8,7 +8,7 @@ GitHub only. The rules in the skill hold as well.
 The repository's settings say which merge methods are allowed:
 
 ```
-gh api 'repos/{owner}/{repo}' --jq '{squash: .allow_squash_merge, merge: .allow_merge_commit, rebase: .allow_rebase_merge, title: .squash_merge_commit_title, message: .squash_merge_commit_message}'
+gh api 'repos/{owner}/{repo}' --jq '{squash: .allow_squash_merge, merge: .allow_merge_commit, rebase: .allow_rebase_merge, squash_title: .squash_merge_commit_title, squash_message: .squash_merge_commit_message, merge_title: .merge_commit_title, merge_message: .merge_commit_message}'
 ```
 
 The fields are missing where the token cannot see the repository's settings. Where more than one
@@ -36,6 +36,23 @@ in "Add retry on conflict (#123)". A merge commit has two parents, and its subje
 - `PR_BODY`: the description is the body. Rule 11 applies to it.
 - `COMMIT_MESSAGES`: the branch's commit messages are joined into the body. Each one is part of
   the final message, so rules 1 to 10 apply to each, and rule 12 applies to the branch.
+- `BLANK`: the body starts empty, and the merger writes it at merge time. The rules apply to
+  what they write.
+
+## Where the merge commit's message comes from
+
+A merge commit keeps every commit on the branch, so rules 1 to 10 and rule 12 apply to them as
+they stand. The merge commit adds one message of its own.
+
+`merge_commit_title` sets its subject:
+
+- `MERGE_MESSAGE`: the classic "Merge pull request #123 from branch-name". No rule applies to it.
+- `PR_TITLE`: the pull request's title is the subject, so rule 1 applies to the title.
+
+`merge_commit_message` sets its body:
+
+- `PR_BODY`: the description is the body. Rule 11 applies to it.
+- `PR_TITLE`: the body repeats the title, so rule 1 applies to the title.
 - `BLANK`: the body starts empty, and the merger writes it at merge time. The rules apply to
   what they write.
 

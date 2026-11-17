@@ -89,11 +89,13 @@ does it describe the code as it now is?
     one sentence costs the reader something the diff and the subject do not give them. A reason
     that takes three paragraphs gets three. A sentence restating the subject goes.
 
-11. **Where a pull request becomes the message, write it as one.** A project that squash-merges
-    may take the squash commit's subject from the pull request's title and its body from the
+11. **Where a pull request becomes the message, write it as one.** A host can build a commit's
+    message from the pull request: the squash commit's on a squash merge, or the merge commit's
+    on a merge. Either may take its subject from the pull request's title and its body from the
     description. Whether it does depends on the host's settings, and `github.md` beside this
-    skill says how to tell on GitHub. Where it does, the title follows rule 1. The description
-    opens with the part that becomes the message, written by these rules. What only the reviewer
+    skill says how to tell on GitHub. Where the title becomes a subject, it follows rule 1.
+    Where the description becomes a body, it opens with the part that becomes the message,
+    written by these rules. What only the reviewer
     needs follows under a heading of its own, such as "Review notes": how the change was tested,
     screenshots, and open questions. The merger deletes that section from the message at merge
     time.
@@ -114,7 +116,8 @@ has, and only when asked.
 
 Review the commits the branch adds, `<base>..HEAD`. Where the pull request description becomes
 the squash message, review its opening part as that message instead. Apply items 1 to 10 to it,
-against the diff of the whole branch.
+against the diff of the whole branch. Where the description becomes a merge commit's body, the
+branch's commits reach the history as well, so review both.
 
 1. Run `git log --format='%h %s' <base>..HEAD` and read each subject with its body and diff
    hidden. Say what each commit does. A subject that does not let you is the finding. So is a
@@ -146,9 +149,9 @@ against the diff of the whole branch.
    instructions require.
 10. Check each body sentence by sentence: delete the sentence, and ask what the reader lost. A
     sentence whose deletion costs nothing is the finding, whatever the body's length.
-11. Where the description becomes the squash message, check that it opens with a part that would
-    stand as that message. Reviewer notes mixed into that part are the finding. Notes under a
-    heading of their own after it are not.
+11. Where the description becomes a squash or merge commit's body, check that it opens with a
+    part that would stand as that message. Reviewer notes mixed into that part are the finding.
+    Notes under a heading of their own after it are not.
 12. Where every commit on the branch reaches the history, find each commit that only fixes
     another commit on the same branch: "fix lint", "address review", "wip". One not folded in
     before the merge is the finding.
