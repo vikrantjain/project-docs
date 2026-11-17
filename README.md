@@ -38,14 +38,21 @@ that documentation:
 Each skill ends with a review checklist covering every one of its rules, so asking for a review
 applies the same standard that writing does.
 
-The six skills cross-reference each other, so procedural content is kept out of READMEs,
-design rationale is kept out of runbooks and lands in the architecture document, a table of
-settings lands in the configuration reference rather than in a runbook, and an explanation of one
-block of code lands beside that block rather than in any of them. A comment that generates the
-configuration reference is written as a row of that reference. The account of how the work
-got there lands in the commit message, the one record that carries its date. The project README
-is the entry point: the runbook, the configuration reference and the architecture document are
-each one link away from it.
+The six skills cross-reference each other, so each kind of content lands in one place:
+
+- A procedure leaves the README for the runbook once it outgrows a short quickstart.
+- A table of settings lives in the configuration reference. Where the project has none yet, a
+  short table stays in the README's "Configuration" section. A runbook never carries one.
+- Design rationale lands in the architecture document, not in a README, a runbook or a
+  configuration reference. A commit that changes the design updates that document too.
+- An explanation of one block of code lands beside that block. A comment that generates the
+  configuration reference is written as a row of that reference.
+- The account of how the work got there lands in the commit message, the one record that
+  carries its date. A problem a runbook's follower can still meet becomes an entry in its
+  troubleshooting section, written as a symptom and its fix.
+
+The project README is the entry point: the runbook, the configuration reference and the
+architecture document are each one link away from it.
 
 ## Requirements
 
