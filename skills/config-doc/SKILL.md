@@ -97,10 +97,11 @@ one name or one message find its row, and can they trust what the row says?
    values and its unit. Check each default against the code or the entrypoint for both the
    unset case and the empty case. Where you can run the system, set the variable to empty and
    leave it unset, and compare both with the row. Check that a row naming a file says who must
-   be able to read it.
-5. For each setting that must be set, find the message the system prints when it is missing.
-   Where you can start the system, start it without the setting and compare. A row that does
-   not give that message word for word is the finding.
+   be able to read it. Check that the rows are grouped by what they configure, and sorted by
+   name within each group.
+5. For each setting, find the message the system prints when the setting is missing and when
+   its value is invalid. Where you can start the system, start it each way and compare. A row
+   that does not give each message word for word is the finding.
 6. Check that every setting holding a secret is marked, and every setting that makes the system
    write one down. A usable example value for either is the finding.
 7. Check that settings read by a base image, a framework or a runtime sit in a table of their

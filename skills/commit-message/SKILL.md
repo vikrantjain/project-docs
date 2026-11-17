@@ -130,7 +130,8 @@ against the diff of the whole branch.
 5. Find every sentence that narrates the diff: a list of files, or an edit-by-edit account. Each
    one is the finding.
 6. Read each diff for a changed default, a removed option, a broken interface, a moved name or a
-   migration. One the message does not name is the finding.
+   migration. One the message does not name is the finding. So is one it names without saying
+   what anyone depending on the old behaviour must now do.
 7. For each constraint a message states, check that the code carries it in a comment where an
    editor will see it. A constraint recorded only in the message is a finding against the code,
    not the message. Where the project has an architecture document, check that each design

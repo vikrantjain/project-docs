@@ -161,7 +161,8 @@ shape first.
    names machinery rather than an outcome is the finding, and so are two headings that reach the
    same outcome by different means. A heading naming a topic rather than an outcome is the same
    finding: "Key rotation" names a subject, "Rotate the signing key" names what the follower
-   gets.
+   gets. Where two flows drive the same services in different sequences, check that the
+   runbook says which one a first-time follower runs.
 2. Read each flow section's opening lines. They name what the flow achieves, what must already
    have run, and the end state that proves it worked; a missing one of those is the finding.
    Where the section cannot be re-run, or where a failure partway needs a named resume point,
@@ -212,6 +213,7 @@ shape first.
 15. Where the runbook is split, check that `index.md` reaches every flow, that nothing the
     follower executes lives in it, and that no flow file repeats setup it could link to instead.
 16. Check that the README links to this runbook rather than carrying a second copy of its steps.
-17. Confirm teardown covers what setup created.
+17. Confirm teardown removes everything the runbook creates: in the shared setup, in each flow,
+    and on the failure paths. Check that it removes them in an order that works.
 18. Settle anything the steps above do not cover against the opening sentence: does the follower
     need this in order to operate the system, or is it there because the author knew it?

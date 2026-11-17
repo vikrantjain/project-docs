@@ -90,8 +90,8 @@ checklist, not this one.
    missing.
 2. For anything reachable from outside the unit, check that the contract is there: what must be
    true before the call, how failure is reported, what the caller is left holding, and any
-   restriction on when it may be called. An absent one of those is a finding as much as a surplus
-   comment is.
+   restriction on when or from where it may be called. An absent one of those is a finding as
+   much as a surplus comment is.
 3. Read each comment beside its code and delete every one you could have written from that code.
    That is narration, and a comment that only spells out the name above it is the same finding.
 4. Cut every account of how the code came to be: sequences of attempts, "originally", "we used
