@@ -21,6 +21,8 @@ one name or one message find its row, and can they trust what the row says?
    leaves the operator who needs it with nothing to find. A row for a setting the system no
    longer reads has the operator change a value that does nothing. The ports the system listens
    on and the paths it answers health checks on get rows too, even where they cannot be changed.
+   This covers the settings the system owns. Rule 6 says what the table of settings it only
+   passes on holds.
 
 2. **Generate the table from the system where the project can.** A schema, the framework's
    configuration metadata or the command's `--help` output can each produce it. A hand-written
@@ -48,9 +50,11 @@ one name or one message find its row, and can they trust what the row says?
 
 6. **Separate the settings the system owns from those it only passes on.** A base image, a
    framework and a runtime each read settings of their own. Those go in a table of their own,
-   which names whose they are. Their names and defaults follow that component's version, not
-   the project's. Where the project promises not to rename its settings, say which table the
-   promise covers.
+   which names whose they are. It holds only the ones the project sets, changes the default of,
+   or expects the operator to set, and it says it is not complete. A framework can read
+   thousands of settings, and a row for each could not be checked against the system. Their
+   names and defaults follow that component's version, not the project's. Where the project
+   promises not to rename its settings, say which table the promise covers.
 
 7. **Say what else can set the same value, and which source wins.** A configuration file, a
    command-line flag, a profile, or a second name the framework derives can each set what the
@@ -105,8 +109,9 @@ one name or one message find its row, and can they trust what the row says?
 6. Check that every setting holding a secret is marked, and every setting that makes the system
    write one down. A usable example value for either is the finding.
 7. Check that settings read by a base image, a framework or a runtime sit in a table of their
-   own that names whose they are. Where the project promises stable names, check that the
-   reference says which table the promise covers.
+   own that names whose they are and says it is not complete. A row there for a setting the
+   project neither sets nor expects the operator to set is the finding. Where the project
+   promises stable names, check that the reference says which table the promise covers.
 8. For each setting, look for another source that sets the same value: a configuration file, a
    flag, a profile, a derived name. One the reference does not name, or whose precedence it
    does not state, is the finding. For each setting that guards a check, look for a setting
