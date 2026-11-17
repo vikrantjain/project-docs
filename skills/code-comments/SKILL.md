@@ -94,7 +94,8 @@ the reader could not have read off it, or is it a fact about something else?
    output is what the code guarantees, the finding is a missing test rather than a surplus
    comment. An example in a comment stays when the project's test command runs it. Check that
    it does, because a doctest the test run never collects is sample output like any other.
-6. Cut commented-out code, and every TODO naming neither an owner nor a tracking item.
+6. Cut commented-out code, and every TODO that does not name both an owner and a tracking item.
+   Where the work a TODO names is tracked nowhere, the TODO is not cut until that work is filed.
 7. Cut comments whose subject is the system rather than the code they sit on. Anything that would
    have to change when a different file changes is in the wrong file: relocate it to the
    architecture document and leave the one line that points there.
