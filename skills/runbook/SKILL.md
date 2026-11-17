@@ -1,6 +1,6 @@
 ---
 name: runbook
-description: Guidelines for writing and reviewing a runbook — what it may contain, how it is organised into flows and files, how each step is worded, and which sections it must carry. Use before creating, updating or reviewing a runbook, a setup guide, an operational procedure or a "how to run this" document. Also use before writing or reviewing a code change, diff or pull request that touches a runbook, even when the task is about the code.
+description: Guidelines for writing and reviewing a runbook — what it may contain, how it is organised into flows and files, how each step is worded, and which sections it must carry. Use before creating, updating or reviewing a runbook, a guide to setting up or deploying the system for operation, an operational procedure or a "how to run this" document. Also use before writing or reviewing a code change, diff or pull request that touches a runbook, even when the task is about the code.
 ---
 
 # Runbooks
