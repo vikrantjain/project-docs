@@ -44,7 +44,7 @@ carries the whole diagram and a per-node `style` line never appears:
 
 ```
 classDef person fill:#08427B,color:#fff
-classDef system fill:#08427B,color:#fff
+classDef system fill:#1168BD,color:#fff
 classDef container fill:#438DD5,color:#fff
 classDef component fill:#85BBF0,color:#000
 classDef external fill:#999999,color:#fff
