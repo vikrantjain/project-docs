@@ -27,7 +27,9 @@ sit above rule 4's quickstart in the document itself.
 3. **Orientation, not instruction.** The README routes the reader; it does not walk them
    through work. Anything the reader executes beyond the quickstart belongs in a runbook. See
    the `runbook` skill, rule 7. What stays here is what the thing is, how it fits, and where
-   the docs are.
+   the docs are. A table of settings stays only while it is short enough to skim. Past that,
+   it moves to the project's configuration reference. Where the project has none, propose one
+   rather than creating it. See the `config-doc` skill, rule 10.
 
 4. **A quickstart earns its place only while it stays short.** Install and one command that
    proves the thing runs, with its expected output. Once it grows past what someone reads to
@@ -73,7 +75,9 @@ sit above rule 4's quickstart in the document itself.
 2. Cut anything the reader executes beyond the quickstart, and anything that explains the
    design. Relocate it to the runbook, the architecture document, or a comment beside the code
    it explains, and leave a link. It is not relocated unless it exists nowhere else. A diagram
-   the reader could place the project without is the same finding.
+   the reader could place the project without is the same finding. A table of settings longer
+   than a skim is relocated to the configuration reference the same way. Where the project has
+   none, the finding is a proposal to create one, not the file.
 3. Check the quickstart itself. If it is longer than what someone reads to decide whether to
    care, it belongs in a runbook with a link left behind. If its one command does not show the
    output that proves the thing ran, that is the finding.

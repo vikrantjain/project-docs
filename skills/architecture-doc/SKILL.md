@@ -45,11 +45,13 @@ or is it the story of how it got there?
    metaphor only once it is this document set's own vocabulary.
 
 8. **The subject is the whole system.** How the parts fit together, why the system is divided
-   this way, and the alternatives the division rejected belong here and nowhere else. Two
+   this way, and the alternatives the division rejected belong here and nowhere else. Three
    things that do not: anything the reader executes, which is the runbook's (see the `runbook`
-   skill, rule 5), and the reason one block of code is as it is, which sits beside that code
-   (see the `code-comments` skill, rule 7). The README names this document in one line rather
-   than restating it; see the `readme` skill, rule 6.
+   skill, rule 5), the table of settings an operator looks up, which is the configuration
+   reference's (see the `config-doc` skill, rule 11), and the reason one block of code
+   is as it is, which sits beside that code (see the `code-comments` skill, rule 7). The
+   README names this document in one line rather than restating it; see the `readme` skill,
+   rule 6.
 
 9. **Prefer a diagram to a long passage** where it carries the same thing faster. Put a
    short summary under each one: two or three lines saying what to take from it, not a
@@ -93,8 +95,9 @@ or is it the story of how it got there?
 5. For each flow, check that the reader is told what was wrong before being shown the
    solution, rather than left to work it out from two things placed side by side.
 6. Cut anything the reader executes, and relocate it to the runbook. Cut the rationale for one
-   block of code, and relocate it to a comment beside that block. Neither is cut until it
-   exists at its destination.
+   block of code, and relocate it to a comment beside that block. Cut a table of settings, and
+   relocate it to the configuration reference, or to the README where the project has none.
+   None of them is cut until it exists at its destination.
 7. Name what is missing: how the parts fit together, why the system is divided this way, and
    what the division rejected. An absent one of those is a finding as much as a surplus
    section is.

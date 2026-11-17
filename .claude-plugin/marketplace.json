@@ -10,7 +10,7 @@
     {
       "name": "project-docs",
       "source": "./",
-      "description": "Guidelines for writing and reviewing the documentation a project ships with: READMEs, runbooks, architecture documents and the comments in the source."
+      "description": "Guidelines for writing and reviewing the documentation a project ships with: READMEs, runbooks, configuration references, architecture documents and the comments in the source."
     }
   ]
 }

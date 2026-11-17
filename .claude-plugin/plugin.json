@@ -1,7 +1,7 @@
 {
   "name": "project-docs",
-  "description": "Guidelines for writing and reviewing the documentation a project ships with: READMEs, runbooks, architecture documents and the comments in the source.",
-  "version": "0.6.3",
+  "description": "Guidelines for writing and reviewing the documentation a project ships with: READMEs, runbooks, configuration references, architecture documents and the comments in the source.",
+  "version": "0.7.0",
   "author": {
     "name": "Vikrant Jain"
   },
@@ -11,6 +11,7 @@
     "documentation",
     "readme",
     "runbook",
+    "configuration",
     "architecture",
     "code-comments",
     "technical-writing",

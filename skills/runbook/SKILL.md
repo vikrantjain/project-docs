@@ -42,7 +42,10 @@ shape first.
    cuts: a paragraph explaining how the component works, and a note saying a step was added
    because of a bug last month. Link the architecture doc in one line instead; see the
    `architecture-doc` skill, rule 8. Where the paragraph explains one block of code rather than
-   the system, it belongs beside that code; see the `code-comments` skill, rule 7.
+   the system, it belongs beside that code; see the `code-comments` skill, rule 7. A table of
+   the settings the system reads is looked up rather than followed. It belongs in the
+   configuration reference, or in the README where the project has none, and the prerequisites
+   link it; see the `config-doc` skill, rule 10.
 
 6. **Not the development environment.** A runbook is for operating the system, not for preparing
    a machine to develop it. Installing a language toolchain, an IDE, editor settings or commit
@@ -175,6 +178,8 @@ shape first.
 10. Cut anything explaining the system rather than instructing the reader. That is rule 5, the
     scope rule. It is not relocated unless it exists nowhere else. Its destination is the
     architecture document, or, where it explains one block of code, a comment beside that code.
+    A table of settings moves to the configuration reference, or to the README where the
+    project has none, and the prerequisites link it.
 11. Cut developer environment setup, and cut any block that reproduces a script the project
     already ships. Replace the reproduced block with the path and the invocation.
 12. Check that setup every flow needs sits in one section ahead of the flows, that it starts from
