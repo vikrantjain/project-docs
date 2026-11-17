@@ -42,7 +42,10 @@ shape first.
    cuts: a paragraph explaining how the component works, and a note saying a step was added
    because of a bug last month. Link the architecture doc in one line instead; see the
    `architecture-doc` skill, rule 8. Where the paragraph explains one block of code rather than
-   the system, it belongs beside that code; see the `code-comments` skill, rule 7. A table of
+   the system, it belongs beside that code; see the `code-comments` skill, rule 7. The reason a
+   step was added belongs in the message of the commit that added it; see the `commit-message`
+   skill, rule 2. Where the bug can still reach a follower, its symptom and fix go in
+   troubleshooting; see rule 19. A table of
    the settings the system reads is looked up rather than followed. It belongs in the
    configuration reference, or in the README where the project has none, and the prerequisites
    link it; see the `config-doc` skill, rule 10.
@@ -143,7 +146,10 @@ shape first.
     guessing which file to open.
 
 19. **Troubleshooting is a section, not a scattering.** One at the end, or one per section when
-    the runbook is long. Each entry is a symptom the follower can observe, then the fix.
+    the runbook is long. Each entry is a symptom the follower can observe, then the fix. A
+    problem met while building or deploying the system belongs here only in that form, and only
+    while a follower can still meet it. The architecture document sends such problems here; see
+    the `architecture-doc` skill, rule 2.
 
 20. **End with teardown.** Everything the runbook created, removed in an order that works,
     including anything created only on the failure paths.
@@ -189,14 +195,17 @@ shape first.
     scope rule. It is not relocated unless it exists nowhere else. Its destination is the
     architecture document, or, where it explains one block of code, a comment beside that code.
     A table of settings moves to the configuration reference, or to the README where the
-    project has none, and the prerequisites link it.
+    project has none, and the prerequisites link it. A note on why a step was added is cut.
+    Its reason belongs in the commit message, and a problem a follower can still meet becomes
+    a troubleshooting entry.
 11. Cut developer environment setup, and cut any block that reproduces a script the project
     already ships. Replace the reproduced block with the path and the invocation.
 12. Check that setup every flow needs sits in one section ahead of the flows, that it starts from
     an environment carrying nothing but the prerequisites, and that setup only one flow needs
     sits inside that flow.
 13. Check that troubleshooting is a section rather than notes scattered through the steps. Each
-    entry names a symptom the follower can observe, then the fix.
+    entry names a symptom the follower can observe, then the fix. An entry that tells the story
+    of meeting a problem, rather than its symptom and fix, is the finding.
 14. Check whether it should be one file at all. A runbook split across files whose owner did not
     ask for the split is the finding, and so is any part of a split runbook living outside the
     `runbook/` folder.

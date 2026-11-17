@@ -19,8 +19,11 @@ or is it the story of how it got there?
    no progress report.
 
 2. **Not a record of gotchas, failures or issues** hit while writing the document or while
-   writing, building or deploying the code. Those belong in the issue tracker, the runbook's
-   troubleshooting section, or the component's own repo. See the `runbook` skill, rule 19.
+   writing, building or deploying the code. One that a follower of the runbook can still meet
+   goes in its troubleshooting section, as a symptom and its fix; see the `runbook` skill,
+   rule 19. One still open goes in the issue tracker of the component it belongs to. The
+   account of meeting it belongs in the message of the commit that dealt with it; see the
+   `commit-message` skill, rule 2.
 
 3. **Not a history.** Git holds that, and the message of each commit that changed the design
    says why it changed. See the `commit-message` skill, rules 4 and 7. The commit that changes
@@ -92,8 +95,9 @@ or is it the story of how it got there?
 2. Cut every account of how the design came to be: "previously", "we changed to", a revision
    log, an attempt that was reverted. Keep a rejected alternative only where it sits inside
    the decision that rejected it, as the reason.
-3. Cut every gotcha, failure and issue. Relocate each to the issue tracker or the runbook's
-   troubleshooting section, and only if it exists nowhere else.
+3. Cut every gotcha, failure and issue. Relocate one a follower can still meet to the runbook's
+   troubleshooting section, as a symptom and its fix. Relocate one still open to the issue
+   tracker. Relocate each only if it exists nowhere else.
 4. Check each sentence for past or future tense about the project's own work. `we will`,
    `we did`, `next` and `as of` are the finding.
 5. For each flow, check that the reader is told what was wrong before being shown the

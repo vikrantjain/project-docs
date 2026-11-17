@@ -29,7 +29,9 @@ does it describe the code as it now is?
    failure, the request or the limit that was hit. Then say how this change answers it, at the
    level of the approach rather than the edits; see rule 5. Removing code is a change like any
    other, and the body says why it went. The `code-comments` skill, rule 6, sends removed code
-   here rather than leaving it commented out. Leave the body out only when the subject already
+   here rather than leaving it commented out. The `runbook` skill, rule 5, and the
+   `architecture-doc` skill, rule 2, send here the failure that a step or a design change
+   answered. Leave the body out only when the subject already
    carries the whole reason, as in a typo fix.
 
 3. **The message stands alone.** No "as planned", no "step 3", no "per the discussion", and no
