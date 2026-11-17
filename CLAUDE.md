@@ -36,10 +36,11 @@ silently.
 ## Rule numbers are an API
 
 Rules are cited by number from another skill, from inside their own list, and from the review
-checklist below it. Inserting a rule mid-list renumbers everything after it and silently breaks
-those citations. Before renumbering, grep every skill for `rule [0-9]` and fix what the shift
-moved. Then bump the version in `plugin.json`, because a citation held outside this repo cannot be
-grepped.
+checklist below it. Checklist items are cited by number too. Inserting a rule or an item mid-list
+renumbers everything after it and silently breaks those citations. Before renumbering, run
+`grep -rniE '(rules?|items?) [0-9]' skills` and fix what the shift moved. A narrower pattern such
+as `rule [0-9]` misses `Rule 13`, `rules 4 and 7` and `items 1 to 10`. Then bump the version in
+`plugin.json`, because a citation held outside this repo cannot be grepped.
 
 ## Scope
 
