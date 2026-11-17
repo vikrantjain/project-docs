@@ -41,7 +41,8 @@ applies the same standard that writing does.
 The six skills cross-reference each other, so procedural content is kept out of READMEs,
 design rationale is kept out of runbooks and lands in the architecture document, a table of
 settings lands in the configuration reference rather than in a runbook, and an explanation of one
-block of code lands beside that block rather than in any of them. The account of how the work
+block of code lands beside that block rather than in any of them. A comment that generates the
+configuration reference is written as a row of that reference. The account of how the work
 got there lands in the commit message, the one record that carries its date. The project README
 is the entry point: the runbook, the configuration reference and the architecture document are
 each one link away from it.

@@ -25,7 +25,10 @@ one name or one message find its row, and can they trust what the row says?
 2. **Generate the table from the system where the project can.** A schema, the framework's
    configuration metadata or the command's `--help` output can each produce it. A hand-written
    table drifts from the system with every change to the code. A generated table says how to
-   regenerate it, and the rules below then apply to the source it is generated from.
+   regenerate it, and the rules below then apply to the source it is generated from. Where that
+   source is a comment or a docstring, these rules govern it, not the `code-comments` skill's.
+   Its reader is the operator, so it gives the message the system prints word for word, as
+   rule 4 asks.
 
 3. **Each row gives the name, what the setting does, its default and whether it must be set.**
    Write the name exactly as the operator types it. Say what happens when the setting is unset
@@ -88,7 +91,8 @@ one name or one message find its row, and can they trust what the row says?
    port or a health path with no row is the same finding.
 3. Where the table is generated, regenerate it and compare. Where it is hand-written and the
    project has a schema, configuration metadata or `--help` output that could produce it, that
-   is the finding.
+   is the finding. Where it is generated from comments in the source, review those comments
+   with this checklist.
 4. Check every row for what the setting does, its default, whether it must be set, its valid
    values and its unit. Check each default against the code or the entrypoint for both the
    unset case and the empty case. Where you can run the system, set the variable to empty and

@@ -14,6 +14,11 @@ week it was written in. Every rule below serves that one sentence.
 The reader is a person picking the file up cold or an agent building context for an edit. Both
 need the same thing, so no rule below distinguishes them.
 
+A comment that a generator turns into the project's configuration reference has another reader:
+the operator looking up a setting. It is a row of that reference, and the `config-doc` skill
+governs it rather than this one. That includes the message the system prints when the setting
+is missing or wrong, which rule 5 would otherwise cut as captured error text.
+
 The rules hold in any language. Where one names a construct a language does not have, it applies
 to that language's nearest equivalent.
 
@@ -76,6 +81,9 @@ the reader could not have read off it, or is it a fact about something else?
     mismatch found later as a defect rather than a wording nit.
 
 ## Reviewing existing code documentation
+
+A comment that generates the configuration reference is reviewed against the `config-doc`
+checklist, not this one.
 
 1. Read the file's comments with the code hidden, then say what the unit is for and what an
    editor must not break. Whatever you cannot say from the comments alone is what they are
